@@ -96,7 +96,7 @@ export function executeOperation<T extends OperationBase>(
       }
     }
 
-    callback!(err, result);
+    callback(err, result);
   }
 
   try {
