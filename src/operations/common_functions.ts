@@ -190,14 +190,6 @@ export function removeDocuments(
   });
 }
 
-export interface UpdateDocumentsOptions extends BSONSerializeOptions {
-  multi?: undefined;
-  hint?: any;
-  arrayFilters?: any;
-  retryWrites?: any;
-  upsert?: undefined;
-}
-
 export function updateDocuments(
   server: Server,
   coll: Collection,
