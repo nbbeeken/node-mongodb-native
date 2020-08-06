@@ -61,7 +61,7 @@ export class DeleteOneOperation extends CommandOperation<DeleteOptions> {
   execute(server: Server, callback: Callback<DeleteResult>): void {
     const coll = this.collection;
     const filter = this.filter;
-    const options = this.options;
+    const options: DeleteOperationOptions = this.options;
 
     options.single = true;
     removeDocuments(server, coll, filter, options, (err, r) => deleteCallback(err, r, callback));
@@ -86,7 +86,7 @@ export class DeleteManyOperation extends CommandOperation<DeleteOptions> {
   execute(server: Server, callback: Callback<DeleteResult>): void {
     const coll = this.collection;
     const filter = this.filter;
-    const options = this.options;
+    const options: DeleteOperationOptions = this.options;
 
     // a user can pass `single: true` in to `deleteMany` to remove a single document, theoretically
     if (typeof options.single !== 'boolean') {

@@ -33,7 +33,7 @@ export class CountOperation extends CommandOperation<CountOptions> {
   execute(server: Server, callback: Callback<number>): void {
     const cursor = this.cursor;
     const applySkipLimit = this.applySkipLimit;
-    const options = this.options;
+    const options: CountOperationOptions = this.options;
 
     if (applySkipLimit) {
       if (typeof cursor.cursorSkip === 'number') options.skip = cursor.cursorSkip;

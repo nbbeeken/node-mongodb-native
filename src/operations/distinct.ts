@@ -47,7 +47,7 @@ export class DistinctOperation extends CommandOperation<DistinctOptions> {
     const coll = this.collection;
     const key = this.key;
     const query = this.query;
-    const options = this.options;
+    const options: DistinctOperationOptions = this.options;
 
     // Distinct command
     const cmd: Document = {
