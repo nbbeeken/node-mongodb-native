@@ -94,6 +94,17 @@ export interface CursorOptions extends CoreCursorOptions {
   numberOfRetries?: number;
 }
 
+export interface CursorPrivate {
+  /** Transforms functions */
+  transforms: CollectionTransform;
+  numberOfRetries: number;
+  tailableRetryInterval: number;
+  currentNumberOfRetries: number;
+  explicitlyIgnoreSession: boolean;
+
+  state: number; // Should be enum
+}
+
 /**
  * Creates a new Cursor instance (INTERNAL TYPE, do not instantiate directly)
  *

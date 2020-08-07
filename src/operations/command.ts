@@ -8,7 +8,7 @@ import { MongoError } from '../error';
 import type { Logger } from '../logger';
 
 import type { Server } from '../sdam/server';
-import type { Callback, Document } from '../types';
+import type { Callback, Document, BSONSerializeOptions } from '../types';
 import type { Collection } from '../collection';
 import type { Db } from '../db';
 import type { MongoClient } from '../mongo_client';
@@ -17,7 +17,7 @@ import type { CollationOptions } from '../cmap/wire_protocol/write_command';
 
 const SUPPORTS_WRITE_CONCERN_AND_COLLATION = 5;
 
-export interface CommandOperationOptions extends OperationOptions {
+export interface CommandOperationOptions extends OperationOptions, BSONSerializeOptions {
   fullResponse?: boolean;
   /** Specify a read concern and level for the collection. (only MongoDB 3.2 or higher supported) */
   readConcern?: ReadConcern;
