@@ -1,6 +1,6 @@
 import { defineAspects, Aspect, OperationBase } from './operation';
 import { deleteCallback, removeDocuments } from './common_functions';
-import { CommandOperation, CommandOpOptions } from './command';
+import { CommandOperation, CommandOperationOptions } from './command';
 import { isObject } from 'util';
 import type { Callback, Document } from '../types';
 import type { Server } from '../sdam/server';
@@ -61,7 +61,7 @@ export class DeleteOneOperation extends CommandOperation<DeleteOptions> {
   execute(server: Server, callback: Callback<DeleteResult>): void {
     const coll = this.collection;
     const filter = this.filter;
-    const options: DeleteOperationOptions = this.options;
+    const options = this.options;
 
     options.single = true;
     removeDocuments(server, coll, filter, options, (err, r) => deleteCallback(err, r, callback));
@@ -86,7 +86,7 @@ export class DeleteManyOperation extends CommandOperation<DeleteOptions> {
   execute(server: Server, callback: Callback<DeleteResult>): void {
     const coll = this.collection;
     const filter = this.filter;
-    const options: DeleteOperationOptions = this.options;
+    const options = this.options;
 
     // a user can pass `single: true` in to `deleteMany` to remove a single document, theoretically
     if (typeof options.single !== 'boolean') {

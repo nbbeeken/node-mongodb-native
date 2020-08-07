@@ -2,7 +2,7 @@ import { Aspect, OperationBase, OperationOptions } from './operation';
 import { ReadConcern } from '../read_concern';
 import { WriteConcern } from '../write_concern';
 import { maxWireVersion, MongoDBNamespace } from '../utils';
-import { ReadPreference } from '../read_preference';
+import { ReadPreference, ReadPreferenceMode } from '../read_preference';
 import { commandSupportsReadConcern, ClientSession } from '../sessions';
 import { MongoError } from '../error';
 import type { Logger } from '../logger';

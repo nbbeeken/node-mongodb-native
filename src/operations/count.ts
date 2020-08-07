@@ -1,5 +1,5 @@
 import { Aspect, defineAspects } from './operation';
-import { CommandOperation, CommandOpOptions } from './command';
+import { CommandOperation, CommandOperationOptions } from './command';
 import { decorateWithCollation, decorateWithReadConcern } from '../utils';
 import type { Callback, Document } from '../types';
 import type { Server } from '../sdam/server';
@@ -33,7 +33,7 @@ export class CountOperation extends CommandOperation<CountOptions> {
   execute(server: Server, callback: Callback<number>): void {
     const cursor = this.cursor;
     const applySkipLimit = this.applySkipLimit;
-    const options: CountOperationOptions = this.options;
+    const options = this.options;
 
     if (applySkipLimit) {
       if (typeof cursor.cursorSkip === 'number') options.skip = cursor.cursorSkip;

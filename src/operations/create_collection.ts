@@ -68,7 +68,7 @@ export class CreateCollectionOperation extends CommandOperation<CreateCollection
   execute(server: Server, callback: Callback<Collection>): void {
     const db = this.db;
     const name = this.name;
-    const options: CreateCollectionOperationOptions = this.options;
+    const options = this.options;
     const Collection = loadCollection();
 
     const done: Callback = err => {
