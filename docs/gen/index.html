@@ -1,0 +1,2901 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mongodb</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">mongodb</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>mongodb</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><a href="https://nodei.co/npm/mongodb/"><img src="https://nodei.co/npm/mongodb.png?downloads=true&downloadRank=true" alt="npm"></a> <a href="https://nodei.co/npm/mongodb/"><img src="https://nodei.co/npm-dl/mongodb.png?months=6&height=3" alt="npm"></a></p>
+				<p><a href="http://travis-ci.org/mongodb/node-mongodb-native"><img src="https://secure.travis-ci.org/mongodb/node-mongodb-native.svg?branch=2.1" alt="Build Status"></a>
+					<a href="https://coveralls.io/github/mongodb/node-mongodb-native?branch=2.1"><img src="https://coveralls.io/repos/github/mongodb/node-mongodb-native/badge.svg?branch=2.1" alt="Coverage Status"></a>
+				<a href="https://gitter.im/mongodb/node-mongodb-native?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+				<a href="#description" id="description" style="color: inherit; text-decoration: none;">
+					<h1>Description</h1>
+				</a>
+				<p>The official <a href="https://www.mongodb.com/">MongoDB</a> driver for Node.js.</p>
+				<p><strong>NOTE: v3.x was recently released with breaking API changes. You can find a list of changes <a href="CHANGES_3.0.0.md">here</a>.</strong></p>
+				<a href="#mongodb-nodejs-driver" id="mongodb-nodejs-driver" style="color: inherit; text-decoration: none;">
+					<h2>MongoDB Node.JS Driver</h2>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>what</th>
+							<th>where</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>documentation</td>
+							<td><a href="http://mongodb.github.io/node-mongodb-native">http://mongodb.github.io/node-mongodb-native</a></td>
+						</tr>
+						<tr>
+							<td>api-doc</td>
+							<td><a href="http://mongodb.github.io/node-mongodb-native/3.1/api">http://mongodb.github.io/node-mongodb-native/3.1/api</a></td>
+						</tr>
+						<tr>
+							<td>source</td>
+							<td><a href="https://github.com/mongodb/node-mongodb-native">https://github.com/mongodb/node-mongodb-native</a></td>
+						</tr>
+						<tr>
+							<td>mongodb</td>
+							<td><a href="http://www.mongodb.org">http://www.mongodb.org</a></td>
+						</tr>
+				</tbody></table>
+				<a href="#bugs--feature-requests" id="bugs--feature-requests" style="color: inherit; text-decoration: none;">
+					<h3>Bugs / Feature Requests</h3>
+				</a>
+				<p>Think you’ve found a bug? Want to see a new feature in <code>node-mongodb-native</code>? Please open a
+				case in our issue management tool, JIRA:</p>
+				<ul>
+					<li>Create an account and login <a href="https://jira.mongodb.org">jira.mongodb.org</a>.</li>
+					<li>Navigate to the NODE project <a href="https://jira.mongodb.org/browse/NODE">jira.mongodb.org/browse/NODE</a>.</li>
+					<li>Click <strong>Create Issue</strong> - Please provide as much information as possible about the issue type and how to reproduce it.</li>
+				</ul>
+				<p>Bug reports in JIRA for all driver projects (i.e. NODE, PYTHON, CSHARP, JAVA) and the
+				Core Server (i.e. SERVER) project are <strong>public</strong>.</p>
+				<a href="#support--feedback" id="support--feedback" style="color: inherit; text-decoration: none;">
+					<h3>Support / Feedback</h3>
+				</a>
+				<p>For issues with, questions about, or feedback for the Node.js driver, please look into our <a href="https://docs.mongodb.com/manual/support">support channels</a>. Please do not email any of the driver developers directly with issues or questions - you&#39;re more likely to get an answer on the <a href="https://community.mongodb.com/tags/c/drivers-odms-connectors/7/node-js-driver">MongoDB Community Forums</a>.</p>
+				<a href="#change-log" id="change-log" style="color: inherit; text-decoration: none;">
+					<h3>Change Log</h3>
+				</a>
+				<p>Change history can be found in <a href="HISTORY.md"><code>HISTORY.md</code></a>.</p>
+				<a href="#compatibility" id="compatibility" style="color: inherit; text-decoration: none;">
+					<h3>Compatibility</h3>
+				</a>
+				<p>For version compatibility matrices, please refer to the following links:</p>
+				<ul>
+					<li><a href="https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/#reference-compatibility-mongodb-node">MongoDB</a></li>
+					<li><a href="https://docs.mongodb.com/ecosystem/drivers/driver-compatibility-reference/#reference-compatibility-language-node">NodeJS</a></li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h1>Installation</h1>
+				</a>
+				<p>The recommended way to get started using the Node.js 3.0 driver is by using the <code>npm</code> (Node Package Manager) to install the dependency in your project.</p>
+				<a href="#mongodb-driver" id="mongodb-driver" style="color: inherit; text-decoration: none;">
+					<h2>MongoDB Driver</h2>
+				</a>
+				<p>Given that you have created your own project using <code>npm init</code> we install the MongoDB driver and its dependencies by executing the following <code>npm</code> command.</p>
+				<pre><code class="language-bash">npm install mongodb --save</code></pre>
+				<p>This will download the MongoDB driver and add a dependency entry in your <code>package.json</code> file.</p>
+				<p>You can also use the <a href="https://yarnpkg.com/en">Yarn</a> package manager.</p>
+				<a href="#troubleshooting" id="troubleshooting" style="color: inherit; text-decoration: none;">
+					<h2>Troubleshooting</h2>
+				</a>
+				<p>The MongoDB driver depends on several other packages. These are:</p>
+				<ul>
+					<li><a href="https://github.com/mongodb-js/mongodb-core">mongodb-core</a></li>
+					<li><a href="https://github.com/mongodb/js-bson">bson</a></li>
+					<li><a href="https://github.com/mongodb-js/kerberos">kerberos</a></li>
+					<li><a href="https://github.com/nodejs/node-gyp">node-gyp</a></li>
+				</ul>
+				<p>The <code>kerberos</code> package is a C++ extension that requires a build environment to be installed on your system. You must be able to build Node.js itself in order to compile and install the <code>kerberos</code> module. Furthermore, the <code>kerberos</code> module requires the MIT Kerberos package to correctly compile on UNIX operating systems. Consult your UNIX operation system package manager for what libraries to install.</p>
+				<p><strong>Windows already contains the SSPI API used for Kerberos authentication. However, you will need to install a full compiler tool chain using Visual Studio C++ to correctly install the Kerberos extension.</strong></p>
+				<a href="#diagnosing-on-unix" id="diagnosing-on-unix" style="color: inherit; text-decoration: none;">
+					<h3>Diagnosing on UNIX</h3>
+				</a>
+				<p>If you don’t have the build-essentials, this module won’t build. In the case of Linux, you will need gcc, g++, Node.js with all the headers and Python. The easiest way to figure out what’s missing is by trying to build the Kerberos project. You can do this by performing the following steps.</p>
+				<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/mongodb-js/kerberos
+<span class="hljs-built_in">cd</span> kerberos
+npm install</code></pre>
+				<p>If all the steps complete, you have the right toolchain installed. If you get the error &quot;node-gyp not found,&quot; you need to install <code>node-gyp</code> globally:</p>
+				<pre><code class="language-bash">npm install -g node-gyp</code></pre>
+				<p>If it correctly compiles and runs the tests you are golden. We can now try to install the <code>mongod</code> driver by performing the following command.</p>
+				<pre><code class="language-bash"><span class="hljs-built_in">cd</span> yourproject
+npm install mongodb --save</code></pre>
+				<p>If it still fails the next step is to examine the npm log. Rerun the command but in this case in verbose mode.</p>
+				<pre><code class="language-bash">npm --loglevel verbose install mongodb</code></pre>
+				<p>This will print out all the steps npm is performing while trying to install the module.</p>
+				<a href="#diagnosing-on-windows" id="diagnosing-on-windows" style="color: inherit; text-decoration: none;">
+					<h3>Diagnosing on Windows</h3>
+				</a>
+				<p>A compiler tool chain known to work for compiling <code>kerberos</code> on Windows is the following.</p>
+				<ul>
+					<li>Visual Studio C++ 2010 (do not use higher versions)</li>
+					<li>Windows 7 64bit SDK</li>
+					<li>Python 2.7 or higher</li>
+				</ul>
+				<p>Open the Visual Studio command prompt. Ensure <code>node.exe</code> is in your path and install <code>node-gyp</code>.</p>
+				<pre><code class="language-bash">npm install -g node-gyp</code></pre>
+				<p>Next, you will have to build the project manually to test it. Clone the repo, install dependencies and rebuild:</p>
+				<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/christkv/kerberos.git
+<span class="hljs-built_in">cd</span> kerberos
+npm install
+node-gyp rebuild</code></pre>
+				<p>This should rebuild the driver successfully if you have everything set up correctly.</p>
+				<a href="#other-possible-issues" id="other-possible-issues" style="color: inherit; text-decoration: none;">
+					<h3>Other possible issues</h3>
+				</a>
+				<p>Your Python installation might be hosed making gyp break. Test your deployment environment first by trying to build Node.js itself on the server in question, as this should unearth any issues with broken packages (and there are a lot of broken packages out there).</p>
+				<p>Another tip is to ensure your user has write permission to wherever the Node.js modules are being installed.</p>
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h2>Quick Start</h2>
+				</a>
+				<p>This guide will show you how to set up a simple application using Node.js and MongoDB. Its scope is only how to set up the driver and perform the simple CRUD operations. For more in-depth coverage, see the <a href="docs/reference/content/tutorials/main.md">tutorials</a>.</p>
+				<a href="#create-the-packagejson-file" id="create-the-packagejson-file" style="color: inherit; text-decoration: none;">
+					<h3>Create the <code>package.json</code> file</h3>
+				</a>
+				<p>First, create a directory where your application will live.</p>
+				<pre><code class="language-bash">mkdir myproject
+<span class="hljs-built_in">cd</span> myproject</code></pre>
+				<p>Enter the following command and answer the questions to create the initial structure for your new project:</p>
+				<pre><code class="language-bash">npm init</code></pre>
+				<p>Next, install the driver dependency.</p>
+				<pre><code class="language-bash">npm install mongodb --save</code></pre>
+				<p>You should see <strong>NPM</strong> download a lot of files. Once it&#39;s done you&#39;ll find all the downloaded packages under the <strong>node_modules</strong> directory.</p>
+				<a href="#start-a-mongodb-server" id="start-a-mongodb-server" style="color: inherit; text-decoration: none;">
+					<h3>Start a MongoDB Server</h3>
+				</a>
+				<p>For complete MongoDB installation instructions, see <a href="https://docs.mongodb.org/manual/installation/">the manual</a>.</p>
+				<ol>
+					<li>Download the right MongoDB version from <a href="https://www.mongodb.org/downloads">MongoDB</a></li>
+					<li>Create a database directory (in this case under <strong>/data</strong>).</li>
+					<li>Install and start a <code>mongod</code> process.</li>
+				</ol>
+				<pre><code class="language-bash">mongod --dbpath=/data</code></pre>
+				<p>You should see the <strong>mongod</strong> process start up and print some status information.</p>
+				<a href="#connect-to-mongodb" id="connect-to-mongodb" style="color: inherit; text-decoration: none;">
+					<h3>Connect to MongoDB</h3>
+				</a>
+				<p>Create a new <strong>app.js</strong> file and add the following code to try out some basic CRUD
+				operations using the MongoDB driver.</p>
+				<p>Add code to connect to the server and the database <strong>myproject</strong>:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  client.close();
+});</code></pre>
+				<p>Run your app from the command line with:</p>
+				<pre><code class="language-bash">node app.js</code></pre>
+				<p>The application should print <strong>Connected successfully to server</strong> to the console.</p>
+				<a href="#insert-a-document" id="insert-a-document" style="color: inherit; text-decoration: none;">
+					<h3>Insert a Document</h3>
+				</a>
+				<p>Add to <strong>app.js</strong> the following function which uses the <strong>insertMany</strong>
+				method to add three documents to the <strong>documents</strong> collection.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> insertDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Insert some documents</span>
+  collection.insertMany([
+    {<span class="hljs-attr">a</span> : <span class="hljs-number">1</span>}, {<span class="hljs-attr">a</span> : <span class="hljs-number">2</span>}, {<span class="hljs-attr">a</span> : <span class="hljs-number">3</span>}
+  ], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">3</span>, result.result.n);
+    assert.equal(<span class="hljs-number">3</span>, result.ops.length);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Inserted 3 documents into the collection"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>The <strong>insert</strong> command returns an object with the following fields:</p>
+				<ul>
+					<li><strong>result</strong> Contains the result document from MongoDB</li>
+					<li><strong>ops</strong> Contains the documents inserted with added <strong>_id</strong> fields</li>
+					<li><strong>connection</strong> Contains the connection used to perform the insert</li>
+				</ul>
+				<p>Add the following code to call the <strong>insertDocuments</strong> function:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    client.close();
+  });
+});</code></pre>
+				<p>Run the updated <strong>app.js</strong> file:</p>
+				<pre><code class="language-bash">node app.js</code></pre>
+				<p>The operation returns the following output:</p>
+				<pre><code class="language-bash">Connected successfully to server
+Inserted 3 documents into the collection</code></pre>
+				<a href="#find-all-documents" id="find-all-documents" style="color: inherit; text-decoration: none;">
+					<h3>Find All Documents</h3>
+				</a>
+				<p>Add a query that returns all the documents.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> findDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Find some documents</span>
+  collection.find({}).toArray(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, docs</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Found the following records"</span>);
+    <span class="hljs-built_in">console</span>.log(docs)
+    callback(docs);
+  });
+}</code></pre>
+				<p>This query returns all the documents in the <strong>documents</strong> collection. Add the <strong>findDocument</strong> method to the <strong>MongoClient.connect</strong> callback:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected correctly to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    findDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<a href="#find-documents-with-a-query-filter" id="find-documents-with-a-query-filter" style="color: inherit; text-decoration: none;">
+					<h3>Find Documents with a Query Filter</h3>
+				</a>
+				<p>Add a query filter to find only documents which meet the query criteria.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> findDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Find some documents</span>
+  collection.find({<span class="hljs-string">'a'</span>: <span class="hljs-number">3</span>}).toArray(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, docs</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Found the following records"</span>);
+    <span class="hljs-built_in">console</span>.log(docs);
+    callback(docs);
+  });
+}</code></pre>
+				<p>Only the documents which match <code>&#39;a&#39; : 3</code> should be returned.</p>
+				<a href="#update-a-document" id="update-a-document" style="color: inherit; text-decoration: none;">
+					<h3>Update a document</h3>
+				</a>
+				<p>The following operation updates a document in the <strong>documents</strong> collection.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> updateDocument = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Update document where a is 2, set b equal to 1</span>
+  collection.updateOne({ <span class="hljs-attr">a</span> : <span class="hljs-number">2</span> }
+    , { <span class="hljs-attr">$set</span>: { <span class="hljs-attr">b</span> : <span class="hljs-number">1</span> } }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">1</span>, result.result.n);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Updated the document with the field a equal to 2"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>The method updates the first document where the field <strong>a</strong> is equal to <strong>2</strong> by adding a new field <strong>b</strong> to the document set to <strong>1</strong>. Next, update the callback function from <strong>MongoClient.connect</strong> to include the update method.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    updateDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<a href="#remove-a-document" id="remove-a-document" style="color: inherit; text-decoration: none;">
+					<h3>Remove a document</h3>
+				</a>
+				<p>Remove the document where the field <strong>a</strong> is equal to <strong>3</strong>.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> removeDocument = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Delete document where a is 3</span>
+  collection.deleteOne({ <span class="hljs-attr">a</span> : <span class="hljs-number">3</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">1</span>, result.result.n);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Removed the document with the field a equal to 3"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>Add the new method to the <strong>MongoClient.connect</strong> callback function.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    updateDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      removeDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        client.close();
+      });
+    });
+  });
+});</code></pre>
+				<a href="#index-a-collection" id="index-a-collection" style="color: inherit; text-decoration: none;">
+					<h3>Index a Collection</h3>
+				</a>
+				<p><a href="https://docs.mongodb.org/manual/indexes/">Indexes</a> can improve your application&#39;s
+					performance. The following function creates an index on the <strong>a</strong> field in the
+				<strong>documents</strong> collection.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> indexCollection = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  db.collection(<span class="hljs-string">'documents'</span>).createIndex(
+    { <span class="hljs-string">"a"</span>: <span class="hljs-number">1</span> },
+      <span class="hljs-literal">null</span>,
+      <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, results</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(results);
+        callback();
+    }
+  );
+};</code></pre>
+				<p>Add the <code>indexCollection</code> method to your app:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+MongoClient.connect(url, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, client</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    indexCollection(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<p>For more detailed information, see the <a href="docs/reference/content/tutorials/main.md">tutorials</a>.</p>
+				<a href="#next-steps" id="next-steps" style="color: inherit; text-decoration: none;">
+					<h2>Next Steps</h2>
+				</a>
+				<ul>
+					<li><a href="http://mongodb.org">MongoDB Documentation</a></li>
+					<li><a href="http://learnmongodbthehardway.com">Read about Schemas</a></li>
+					<li><a href="https://github.com/mongodb/node-mongodb-native">Star us on GitHub</a></li>
+				</ul>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p><a href="LICENSE.md">Apache 2.0</a></p>
+				<p>© 2009-2012 Christian Amor Kvalheim<br>© 2012-present MongoDB <a href="CONTRIBUTORS.md">Contributors</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Documentation</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Documentation/index.html">FAQ</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Tutorials</span>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="pages/Tutorials/quick-start.html">Quick <wbr>Start</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/_kerberos_.html">&quot;kerberos&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/authmechanism.html" class="tsd-kind-icon">Auth<wbr>Mechanism</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/autoencryptionloggerlevels.html" class="tsd-kind-icon">Auto<wbr>Encryption<wbr>Logger<wbr>Levels</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/compressor.html" class="tsd-kind-icon">Compressor</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/loglevel.html" class="tsd-kind-icon">Log<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/profilinglevel.html" class="tsd-kind-icon">Profiling<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/readconcernlevel.html" class="tsd-kind-icon">Read<wbr>Concern<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/readpreferencemode.html" class="tsd-kind-icon">Read<wbr>Preference<wbr>Mode</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/servertype.html" class="tsd-kind-icon">Server<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/topologytype.html" class="tsd-kind-icon">Topology<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/txnstate.html" class="tsd-kind-icon">Txn<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/adduseroperation.html" class="tsd-kind-icon">Add<wbr>User<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/admin.html" class="tsd-kind-icon">Admin</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/aggregateoperation.html" class="tsd-kind-icon">Aggregate<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/aggregationcursor.html" class="tsd-kind-icon">Aggregation<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/authcontext.html" class="tsd-kind-icon">Auth<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/batch.html" class="tsd-kind-icon">Batch</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/binmsg.html" class="tsd-kind-icon">Bin<wbr>Msg</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/bulkoperationbase.html" class="tsd-kind-icon">Bulk<wbr>Operation<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/bulkwriteerror.html" class="tsd-kind-icon">Bulk<wbr>Write<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/bulkwriteoperation.html" class="tsd-kind-icon">Bulk<wbr>Write<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/bulkwriteresult.html" class="tsd-kind-icon">Bulk<wbr>Write<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/changestream.html" class="tsd-kind-icon">Change<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/changestreamcursor.html" class="tsd-kind-icon">Change<wbr>Stream<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/clientsession.html" class="tsd-kind-icon">Client<wbr>Session</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/collstatsoperation.html" class="tsd-kind-icon">Coll<wbr>Stats<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/collection.html" class="tsd-kind-icon">Collection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/collectionsoperation.html" class="tsd-kind-icon">Collections<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandcursor.html" class="tsd-kind-icon">Command<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandfailedevent.html" class="tsd-kind-icon">Command<wbr>Failed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/commandoperation.html" class="tsd-kind-icon">Command<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandresult.html" class="tsd-kind-icon">Command<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandstartedevent.html" class="tsd-kind-icon">Command<wbr>Started<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/commandsucceededevent.html" class="tsd-kind-icon">Command<wbr>Succeeded<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connection.html" class="tsd-kind-icon">Connection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectioncheckoutfailedevent.html" class="tsd-kind-icon">Connection<wbr>Check<wbr>Out<wbr>Failed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectioncheckoutstartedevent.html" class="tsd-kind-icon">Connection<wbr>Check<wbr>Out<wbr>Started<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectioncheckedinevent.html" class="tsd-kind-icon">Connection<wbr>Checked<wbr>InEvent</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectioncheckedoutevent.html" class="tsd-kind-icon">Connection<wbr>Checked<wbr>Out<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionclosedevent.html" class="tsd-kind-icon">Connection<wbr>Closed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectioncreatedevent.html" class="tsd-kind-icon">Connection<wbr>Created<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionpool.html" class="tsd-kind-icon">Connection<wbr>Pool</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionpoolclearedevent.html" class="tsd-kind-icon">Connection<wbr>Pool<wbr>Cleared<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionpoolclosedevent.html" class="tsd-kind-icon">Connection<wbr>Pool<wbr>Closed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionpoolcreatedevent.html" class="tsd-kind-icon">Connection<wbr>Pool<wbr>Created<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionpoolmonitoringevent.html" class="tsd-kind-icon">Connection<wbr>Pool<wbr>Monitoring<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/connectionreadyevent.html" class="tsd-kind-icon">Connection<wbr>Ready<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/corecursor.html" class="tsd-kind-icon">Core<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/countdocumentsoperation.html" class="tsd-kind-icon">Count<wbr>Documents<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/countoperation.html" class="tsd-kind-icon">Count<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/createcollectionoperation.html" class="tsd-kind-icon">Create<wbr>Collection<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/createindexoperation.html" class="tsd-kind-icon">Create<wbr>Index<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/createindexesoperation.html" class="tsd-kind-icon">Create<wbr>Indexes<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/cursor.html" class="tsd-kind-icon">Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/db.html" class="tsd-kind-icon">Db</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dbstatsoperation.html" class="tsd-kind-icon">Db<wbr>Stats<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/deletemanyoperation.html" class="tsd-kind-icon">Delete<wbr>Many<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/deleteoneoperation.html" class="tsd-kind-icon">Delete<wbr>One<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/deleteoperation.html" class="tsd-kind-icon">Delete<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/distinctoperation.html" class="tsd-kind-icon">Distinct<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dropcollectionoperation.html" class="tsd-kind-icon">Drop<wbr>Collection<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dropdatabaseoperation.html" class="tsd-kind-icon">Drop<wbr>Database<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dropindexoperation.html" class="tsd-kind-icon">Drop<wbr>Index<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/dropindexesoperation.html" class="tsd-kind-icon">Drop<wbr>Indexes<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/ensureindexoperation.html" class="tsd-kind-icon">Ensure<wbr>Index<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/estimateddocumentcountoperation.html" class="tsd-kind-icon">Estimated<wbr>Document<wbr>Count<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/evalgroupoperation.html" class="tsd-kind-icon">Eval<wbr>Group<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/evaloperation.html" class="tsd-kind-icon">Eval<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findandmodifyoperation.html" class="tsd-kind-icon">Find<wbr>And<wbr>Modify<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoneanddeleteoperation.html" class="tsd-kind-icon">Find<wbr>One<wbr>And<wbr>Delete<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoneandreplaceoperation.html" class="tsd-kind-icon">Find<wbr>One<wbr>And<wbr>Replace<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoneandupdateoperation.html" class="tsd-kind-icon">Find<wbr>One<wbr>And<wbr>Update<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoneoperation.html" class="tsd-kind-icon">Find<wbr>One<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoperation.html" class="tsd-kind-icon">Find<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/findoperators.html" class="tsd-kind-icon">Find<wbr>Operators</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gssapi.html" class="tsd-kind-icon">GSSAPI</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/getmore.html" class="tsd-kind-icon">Get<wbr>More</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gridfsbucket.html" class="tsd-kind-icon">GridFSBucket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gridfsbucketreadstream.html" class="tsd-kind-icon">GridFSBucket<wbr>Read<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/gridfsbucketwritestream.html" class="tsd-kind-icon">GridFSBucket<wbr>Write<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/groupoperation.html" class="tsd-kind-icon">Group<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/indexexistsoperation.html" class="tsd-kind-icon">Index<wbr>Exists<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/indexinformationoperation.html" class="tsd-kind-icon">Index<wbr>Information<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/indexesoperation.html" class="tsd-kind-icon">Indexes<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/insertmanyoperation.html" class="tsd-kind-icon">Insert<wbr>Many<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/insertoneoperation.html" class="tsd-kind-icon">Insert<wbr>One<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/insertoperation.html" class="tsd-kind-icon">Insert<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/instrumentation.html" class="tsd-kind-icon">Instrumentation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/iscappedoperation.html" class="tsd-kind-icon">Is<wbr>Capped<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/killcursor.html" class="tsd-kind-icon">Kill<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/listcollectionsoperation.html" class="tsd-kind-icon">List<wbr>Collections<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/listdatabasesoperation.html" class="tsd-kind-icon">List<wbr>Databases<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/listindexesoperation.html" class="tsd-kind-icon">List<wbr>Indexes<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mapreduceoperation.html" class="tsd-kind-icon">Map<wbr>Reduce<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/messagestream.html" class="tsd-kind-icon">Message<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongocr.html" class="tsd-kind-icon">MongoCR</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongoclient.html" class="tsd-kind-icon">Mongo<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongocredentials.html" class="tsd-kind-icon">Mongo<wbr>Credentials</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongodbaws.html" class="tsd-kind-icon">MongoDBAWS</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongodbnamespace.html" class="tsd-kind-icon">MongoDBNamespace</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongoerror.html" class="tsd-kind-icon">Mongo<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongonetworkerror.html" class="tsd-kind-icon">Mongo<wbr>Network<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongonetworktimeouterror.html" class="tsd-kind-icon">Mongo<wbr>Network<wbr>Timeout<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongoparseerror.html" class="tsd-kind-icon">Mongo<wbr>Parse<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongoserverselectionerror.html" class="tsd-kind-icon">Mongo<wbr>Server<wbr>Selection<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongotimeouterror.html" class="tsd-kind-icon">Mongo<wbr>Timeout<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongowriteconcernerror.html" class="tsd-kind-icon">Mongo<wbr>Write<wbr>Concern<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/monitor.html" class="tsd-kind-icon">Monitor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/msg.html" class="tsd-kind-icon">Msg</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/operationbase.html" class="tsd-kind-icon">Operation<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/optionsoperation.html" class="tsd-kind-icon">Options<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/orderedbulkoperation.html" class="tsd-kind-icon">Ordered<wbr>Bulk<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/pkfactoryabstract.html" class="tsd-kind-icon">Pk<wbr>Factory<wbr>Abstract</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/plain.html" class="tsd-kind-icon">Plain</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/poolclosederror.html" class="tsd-kind-icon">Pool<wbr>Closed<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/profilingleveloperation.html" class="tsd-kind-icon">Profiling<wbr>Level<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/promiseprovider.html" class="tsd-kind-icon">Promise<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/query.html" class="tsd-kind-icon">Query</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rttpinger.html" class="tsd-kind-icon">RTTPinger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/readconcern.html" class="tsd-kind-icon">Read<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/readpreference.html" class="tsd-kind-icon">Read<wbr>Preference</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/removeuseroperation.html" class="tsd-kind-icon">Remove<wbr>User<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/renameoperation.html" class="tsd-kind-icon">Rename<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/replaceoneoperation.html" class="tsd-kind-icon">Replace<wbr>One<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/response.html" class="tsd-kind-icon">Response</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/runadmincommandoperation.html" class="tsd-kind-icon">Run<wbr>Admin<wbr>Command<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/runcommandoperation.html" class="tsd-kind-icon">Run<wbr>Command<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/scramsha.html" class="tsd-kind-icon">ScramSHA</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/scramsha1.html" class="tsd-kind-icon">ScramSHA1</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/scramsha256.html" class="tsd-kind-icon">ScramSHA256</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/server.html" class="tsd-kind-icon">Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/servercapabilities.html" class="tsd-kind-icon">Server<wbr>Capabilities</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverclosedevent.html" class="tsd-kind-icon">Server<wbr>Closed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverdescription.html" class="tsd-kind-icon">Server<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverdescriptionchangedevent.html" class="tsd-kind-icon">Server<wbr>Description<wbr>Changed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverheartbeatfailedevent.html" class="tsd-kind-icon">Server<wbr>Heartbeat<wbr>Failed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverheartbeatstartedevent.html" class="tsd-kind-icon">Server<wbr>Heartbeat<wbr>Started<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serverheartbeatsucceededevent.html" class="tsd-kind-icon">Server<wbr>Heartbeat<wbr>Succeeded<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serveropeningevent.html" class="tsd-kind-icon">Server<wbr>Opening<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serversession.html" class="tsd-kind-icon">Server<wbr>Session</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serversessionpool.html" class="tsd-kind-icon">Server<wbr>Session<wbr>Pool</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/setprofilingleveloperation.html" class="tsd-kind-icon">Set<wbr>Profiling<wbr>Level<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/srvpoller.html" class="tsd-kind-icon">Srv<wbr>Poller</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/srvpollingevent.html" class="tsd-kind-icon">Srv<wbr>Polling<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/streamdescription.html" class="tsd-kind-icon">Stream<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/topology.html" class="tsd-kind-icon">Topology</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/topologyclosedevent.html" class="tsd-kind-icon">Topology<wbr>Closed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/topologydescription.html" class="tsd-kind-icon">Topology<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/topologydescriptionchangedevent.html" class="tsd-kind-icon">Topology<wbr>Description<wbr>Changed<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/topologyopeningevent.html" class="tsd-kind-icon">Topology<wbr>Opening<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/transaction.html" class="tsd-kind-icon">Transaction</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/unorderedbulkoperation.html" class="tsd-kind-icon">Unordered<wbr>Bulk<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/updatemanyoperation.html" class="tsd-kind-icon">Update<wbr>Many<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/updateoneoperation.html" class="tsd-kind-icon">Update<wbr>One<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/updateoperation.html" class="tsd-kind-icon">Update<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/validatecollectionoperation.html" class="tsd-kind-icon">Validate<wbr>Collection<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/waitqueuetimeouterror.html" class="tsd-kind-icon">Wait<wbr>Queue<wbr>Timeout<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/writeconcern.html" class="tsd-kind-icon">Write<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/writeconcernerror.html" class="tsd-kind-icon">Write<wbr>Concern<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/writeerror.html" class="tsd-kind-icon">Write<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/x509.html" class="tsd-kind-icon">X509</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/awscredentials.html" class="tsd-kind-icon">AWSCredentials</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/awssaslcontinuepayload.html" class="tsd-kind-icon">AWSSasl<wbr>Continue<wbr>Payload</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/adduseroptions.html" class="tsd-kind-icon">Add<wbr>User<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/aggregateoptions.html" class="tsd-kind-icon">Aggregate<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/auth.html" class="tsd-kind-icon">Auth</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/autoencrypter.html" class="tsd-kind-icon">Auto<wbr>Encrypter</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/autoencryptionoptions.html" class="tsd-kind-icon">Auto<wbr>Encryption<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/bsonserializeoptions.html" class="tsd-kind-icon">BSONSerialize<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/clientmetadata.html" class="tsd-kind-icon">Client<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/clientmetadataoptions.html" class="tsd-kind-icon">Client<wbr>Metadata<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/clientsessionoptions.html" class="tsd-kind-icon">Client<wbr>Session<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/closeoptions.html" class="tsd-kind-icon">Close<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/clustertime.html" class="tsd-kind-icon">Cluster<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/collstatsoptions.html" class="tsd-kind-icon">Coll<wbr>Stats<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/collationoptions.html" class="tsd-kind-icon">Collation<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/collectionsoptions.html" class="tsd-kind-icon">Collections<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/commandoperationoptions.html" class="tsd-kind-icon">Command<wbr>Operation<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/commandoptions.html" class="tsd-kind-icon">Command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectoptions.html" class="tsd-kind-icon">Connect<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectionoptions.html" class="tsd-kind-icon">Connection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectionpooloptions.html" class="tsd-kind-icon">Connection<wbr>Pool<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/countdocumentsoptions.html" class="tsd-kind-icon">Count<wbr>Documents<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/countoptions.html" class="tsd-kind-icon">Count<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createcollectionoptions.html" class="tsd-kind-icon">Create<wbr>Collection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createindexesoptions.html" class="tsd-kind-icon">Create<wbr>Indexes<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/cursoroptions.html" class="tsd-kind-icon">Cursor<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/cursorprivate.html" class="tsd-kind-icon">Cursor<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/dboptions.html" class="tsd-kind-icon">Db<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/dbprivate.html" class="tsd-kind-icon">Db<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/dbstatsoptions.html" class="tsd-kind-icon">Db<wbr>Stats<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/deleteoptions.html" class="tsd-kind-icon">Delete<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/deleteresult.html" class="tsd-kind-icon">Delete<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/destroyoptions.html" class="tsd-kind-icon">Destroy<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/document.html" class="tsd-kind-icon">Document</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/driverinfo.html" class="tsd-kind-icon">Driver<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/estimateddocumentcountoptions.html" class="tsd-kind-icon">Estimated<wbr>Document<wbr>Count<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/evaloptions.html" class="tsd-kind-icon">Eval<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/findandmodifyoptions.html" class="tsd-kind-icon">Find<wbr>And<wbr>Modify<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/findoptions.html" class="tsd-kind-icon">Find<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/generatecredentialsoptions.html" class="tsd-kind-icon">Generate<wbr>Credentials<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/hicache.html" class="tsd-kind-icon">HICache</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/handshakedocument.html" class="tsd-kind-icon">Handshake<wbr>Document</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/hedgeoptions.html" class="tsd-kind-icon">Hedge<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/indexdescription.html" class="tsd-kind-icon">Index<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/indexinformationoptions.html" class="tsd-kind-icon">Index<wbr>Information<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/insertmanyresult.html" class="tsd-kind-icon">Insert<wbr>Many<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/insertoneresult.html" class="tsd-kind-icon">Insert<wbr>One<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/internalcursorstate.html" class="tsd-kind-icon">Internal<wbr>Cursor<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/interruptableasyncinterval.html" class="tsd-kind-icon">Interruptable<wbr>Async<wbr>Interval</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/interruptableasyncintervaloptions.html" class="tsd-kind-icon">Interruptable<wbr>Async<wbr>Interval<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/killcursoroptions.html" class="tsd-kind-icon">Kill<wbr>Cursor<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/listcollectionsoptions.html" class="tsd-kind-icon">List<wbr>Collections<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/listdatabasesoptions.html" class="tsd-kind-icon">List<wbr>Databases<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/listindexesoptions.html" class="tsd-kind-icon">List<wbr>Indexes<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mapreduceoptions.html" class="tsd-kind-icon">Map<wbr>Reduce<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mapreducestats.html" class="tsd-kind-icon">Map<wbr>Reduce<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/messageheader.html" class="tsd-kind-icon">Message<wbr>Header</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/messagestreamoptions.html" class="tsd-kind-icon">Message<wbr>Stream<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mongoclientoptions.html" class="tsd-kind-icon">Mongo<wbr>Client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mongoclientprivate.html" class="tsd-kind-icon">Mongo<wbr>Client<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mongocredentialsoptions.html" class="tsd-kind-icon">Mongo<wbr>Credentials<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/mongourioptions.html" class="tsd-kind-icon">MongoURIOptions</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/monitoroptions.html" class="tsd-kind-icon">Monitor<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/monitorprivate.html" class="tsd-kind-icon">Monitor<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opgetmoreoptions.html" class="tsd-kind-icon">Op<wbr>Get<wbr>More<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opmsgoptions.html" class="tsd-kind-icon">Op<wbr>Msg<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opqueryoptions.html" class="tsd-kind-icon">Op<wbr>Query<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/opresponseoptions.html" class="tsd-kind-icon">Op<wbr>Response<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/operationconstructor.html" class="tsd-kind-icon">Operation<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/operationdescription.html" class="tsd-kind-icon">Operation<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/operationoptions.html" class="tsd-kind-icon">Operation<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pkfactoryliteral.html" class="tsd-kind-icon">Pk<wbr>Factory<wbr>Literal</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/promisestore.html" class="tsd-kind-icon">Promise<wbr>Store</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/rttpingeroptions.html" class="tsd-kind-icon">RTTPinger<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/readpreferenceoption.html" class="tsd-kind-icon">Read<wbr>Preference<wbr>Option</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/readpreferenceoptions.html" class="tsd-kind-icon">Read<wbr>Preference<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/renameoptions.html" class="tsd-kind-icon">Rename<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/replaceoptions.html" class="tsd-kind-icon">Replace<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/requestoptions.html" class="tsd-kind-icon">Request<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/selectserveroptions.html" class="tsd-kind-icon">Select<wbr>Server<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serveraddress.html" class="tsd-kind-icon">Server<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serverdescriptionoptions.html" class="tsd-kind-icon">Server<wbr>Description<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serveroptions.html" class="tsd-kind-icon">Server<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serverprivate.html" class="tsd-kind-icon">Server<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serverselectionrequest.html" class="tsd-kind-icon">Server<wbr>Selection<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/srvpolleroptions.html" class="tsd-kind-icon">Srv<wbr>Poller<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/streamdescriptionoptions.html" class="tsd-kind-icon">Stream<wbr>Description<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/topologydescriptionoptions.html" class="tsd-kind-icon">Topology<wbr>Description<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/topologyoptions.html" class="tsd-kind-icon">Topology<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/topologyprivate.html" class="tsd-kind-icon">Topology<wbr>Private</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/topologyversion.html" class="tsd-kind-icon">Topology<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/transactionoptions.html" class="tsd-kind-icon">Transaction<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/transformfunctions.html" class="tsd-kind-icon">Transform<wbr>Functions</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/updateresult.html" class="tsd-kind-icon">Update<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/validatecollectionoptions.html" class="tsd-kind-icon">Validate<wbr>Collection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/waitqueuemember.html" class="tsd-kind-icon">Wait<wbr>Queue<wbr>Member</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/writecommandoptions.html" class="tsd-kind-icon">Write<wbr>Command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/writeconcernoptions.html" class="tsd-kind-icon">Write<wbr>Concern<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#anyerror" class="tsd-kind-icon">Any<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#authcontextoptions" class="tsd-kind-icon">Auth<wbr>Context<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#buildcountcommandoptions" class="tsd-kind-icon">Build<wbr>Count<wbr>Command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#callback2" class="tsd-kind-icon">Callback2</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#callbackwithtype" class="tsd-kind-icon">Callback<wbr>With<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#cleanuphandlerfunction" class="tsd-kind-icon">Clean<wbr>UpHandler<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#compressorname" class="tsd-kind-icon">Compressor<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#corecursoroptions" class="tsd-kind-icon">Core<wbr>Cursor<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#cryptomethod" class="tsd-kind-icon">Crypto<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#distinctoptions" class="tsd-kind-icon">Distinct<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#dropcollectionoptions" class="tsd-kind-icon">Drop<wbr>Collection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#dropdatabaseoptions" class="tsd-kind-icon">Drop<wbr>Database<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#dropindexesoptions" class="tsd-kind-icon">Drop<wbr>Indexes<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#eachcallback" class="tsd-kind-icon">Each<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#errorhandlereventname" class="tsd-kind-icon">Error<wbr>Handler<wbr>Event<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#finalizefunction" class="tsd-kind-icon">Finalize<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#getmoreoptions" class="tsd-kind-icon">Get<wbr>More<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#groupoptions" class="tsd-kind-icon">Group<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#hint" class="tsd-kind-icon">Hint</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#insertoptions" class="tsd-kind-icon">Insert<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#last" class="tsd-kind-icon">Last</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#lastparameter" class="tsd-kind-icon">Last<wbr>Parameter</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#listenerfunction" class="tsd-kind-icon">Listener<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#mapfunction" class="tsd-kind-icon">Map<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#parent" class="tsd-kind-icon">Parent</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#pkfactory" class="tsd-kind-icon">Pk<wbr>Factory</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#profilingleveloptions" class="tsd-kind-icon">Profiling<wbr>Level<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#readpreferencelike" class="tsd-kind-icon">Read<wbr>Preference<wbr>Like</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#reducefunction" class="tsd-kind-icon">Reduce<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#removeoptions" class="tsd-kind-icon">Remove<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#removeuseroptions" class="tsd-kind-icon">Remove<wbr>User<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#resulttype" class="tsd-kind-icon">Result<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#runcommandoptions" class="tsd-kind-icon">Run<wbr>Command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#serverselectioncallback" class="tsd-kind-icon">Server<wbr>Selection<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#serverselector" class="tsd-kind-icon">Server<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#serversessionid" class="tsd-kind-icon">Server<wbr>Session<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#setprofilingleveloptions" class="tsd-kind-icon">Set<wbr>Profiling<wbr>Level<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#sort" class="tsd-kind-icon">Sort</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#stream" class="tsd-kind-icon">Stream</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tagset" class="tsd-kind-icon">Tag<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#tail" class="tsd-kind-icon">Tail</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#timerqueue" class="tsd-kind-icon">Timer<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#updateoptions" class="tsd-kind-icon">Update<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#w" class="tsd-kind-icon">W</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#withconnectioncallback" class="tsd-kind-icon">With<wbr>Connection<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#withsessioncallback" class="tsd-kind-icon">With<wbr>Session<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#withtransactioncallback" class="tsd-kind-icon">With<wbr>Transaction<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#writeprotocolmessagetype" class="tsd-kind-icon">Write<wbr>Protocol<wbr>Message<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-event">
+						<a href="globals.html#createchangestreamcursor" class="tsd-kind-icon">create<wbr>Change<wbr>Stream<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#ascii_n" class="tsd-kind-icon">ASCII_<wbr>N</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#auth_mechanisms" class="tsd-kind-icon">AUTH_<wbr>MECHANISMS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#await_capable" class="tsd-kind-icon">AWAIT_<wbr>CAPABLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aws_ec2_path" class="tsd-kind-icon">AWS_<wbr>EC2_<wbr>PATH</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aws_ec2_uri" class="tsd-kind-icon">AWS_<wbr>EC2_<wbr>URI</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aws_relative_uri" class="tsd-kind-icon">AWS_<wbr>RELATIVE_<wbr>URI</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aspect" class="tsd-kind-icon">Aspect</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#boolean_options" class="tsd-kind-icon">BOOLEAN_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#bsonregexp" class="tsd-kind-icon">BSONReg<wbr>Exp</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#bsonsymbol" class="tsd-kind-icon">BSONSymbol</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#bufferlist" class="tsd-kind-icon">Buffer<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#change_stream_options" class="tsd-kind-icon">CHANGE_<wbr>STREAM_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cmap_event_names" class="tsd-kind-icon">CMAP_<wbr>EVENT_<wbr>NAMES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#compression_details_size" class="tsd-kind-icon">COMPRESSION_<wbr>DETAILS_<wbr>SIZE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cursor_not_found" class="tsd-kind-icon">CURSOR_<wbr>NOT_<wbr>FOUND</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cursor_options" class="tsd-kind-icon">CURSOR_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#data_bearing_server_types" class="tsd-kind-icon">DATA_<wbr>BEARING_<wbr>SERVER_<wbr>TYPES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#db_aggregate_collection" class="tsd-kind-icon">DB_<wbr>AGGREGATE_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#debug_fields" class="tsd-kind-icon">DEBUG_<wbr>FIELDS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#deprecated_find_options" class="tsd-kind-icon">DEPRECATED_<wbr>FIND_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#deprecated_unified_events" class="tsd-kind-icon">DEPRECATED_<wbr>UNIFIED_<wbr>EVENTS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#denque" class="tsd-kind-icon">Denque</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#error_namespace_not_found" class="tsd-kind-icon">ERROR_<wbr>NAMESPACE_<wbr>NOT_<wbr>FOUND</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#get_more_resumable_codes" class="tsd-kind-icon">GET_<wbr>MORE_<wbr>RESUMABLE_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hosts_rx" class="tsd-kind-icon">HOSTS_<wbr>RX</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#idle_write_period" class="tsd-kind-icon">IDLE_<wbr>WRITE_<wbr>PERIOD</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#illegal_command_fields" class="tsd-kind-icon">ILLEGAL_<wbr>COMMAND_<wbr>FIELDS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#insert" class="tsd-kind-icon">INSERT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#invalid_request_check_states" class="tsd-kind-icon">INVALID_<wbr>REQUEST_<wbr>CHECK_<wbr>STATES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kerberos" class="tsd-kind-icon">Kerberos</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#legacy_find_options_map" class="tsd-kind-icon">LEGACY_<wbr>FIND_<wbr>OPTIONS_<wbr>MAP</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#legacy_options_map" class="tsd-kind-icon">LEGACY_<wbr>OPTIONS_<wbr>MAP</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#legal_ssl_socket_options" class="tsd-kind-icon">LEGAL_<wbr>SSL_<wbr>SOCKET_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#list_collections_wire_version" class="tsd-kind-icon">LIST_<wbr>COLLECTIONS_<wbr>WIRE_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#list_indexes_wire_version" class="tsd-kind-icon">LIST_<wbr>INDEXES_<wbr>WIRE_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#local_server_events" class="tsd-kind-icon">LOCAL_<wbr>SERVER_<wbr>EVENTS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#max_js_int" class="tsd-kind-icon">MAX_<wbr>JS_<wbr>INT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#max_supported_server_version" class="tsd-kind-icon">MAX_<wbr>SUPPORTED_<wbr>SERVER_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#max_supported_wire_version" class="tsd-kind-icon">MAX_<wbr>SUPPORTED_<wbr>WIRE_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#max_time_ms_expired_code" class="tsd-kind-icon">MAX_<wbr>TIME_<wbr>MS_<wbr>EXPIRED_<wbr>CODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#max_with_transaction_timeout" class="tsd-kind-icon">MAX_<wbr>WITH_<wbr>TRANSACTION_<wbr>TIMEOUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#message_header_size" class="tsd-kind-icon">MESSAGE_<wbr>HEADER_<wbr>SIZE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#min_supported_server_version" class="tsd-kind-icon">MIN_<wbr>SUPPORTED_<wbr>SERVER_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#min_supported_wire_version" class="tsd-kind-icon">MIN_<wbr>SUPPORTED_<wbr>WIRE_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#min_wire_version__out_read_concern_support" class="tsd-kind-icon">MIN_<wbr>WIRE_<wbr>VERSION_<wbr>$OUT_<wbr>READ_<wbr>CONCERN_<wbr>SUPPORT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mmapv1_retry_writes_error_code" class="tsd-kind-icon">MMAPv1_<wbr>RETRY_<wbr>WRITES_<wbr>ERROR_<wbr>CODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mmapv1_retry_writes_error_message" class="tsd-kind-icon">MMAPv1_<wbr>RETRY_<wbr>WRITES_<wbr>ERROR_<wbr>MESSAGE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#map" class="tsd-kind-icon">Map</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#non_deterministic_write_concern_errors" class="tsd-kind-icon">NON_<wbr>DETERMINISTIC_<wbr>WRITE_<wbr>CONCERN_<wbr>ERRORS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_await_data" class="tsd-kind-icon">OPTS_<wbr>AWAIT_<wbr>DATA</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_checksum_present" class="tsd-kind-icon">OPTS_<wbr>CHECKSUM_<wbr>PRESENT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_exhaust" class="tsd-kind-icon">OPTS_<wbr>EXHAUST</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_exhaust_allowed" class="tsd-kind-icon">OPTS_<wbr>EXHAUST_<wbr>ALLOWED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_more_to_come" class="tsd-kind-icon">OPTS_<wbr>MORE_<wbr>TO_<wbr>COME</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_no_cursor_timeout" class="tsd-kind-icon">OPTS_<wbr>NO_<wbr>CURSOR_<wbr>TIMEOUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_oplog_replay" class="tsd-kind-icon">OPTS_<wbr>OPLOG_<wbr>REPLAY</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_partial" class="tsd-kind-icon">OPTS_<wbr>PARTIAL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_slave" class="tsd-kind-icon">OPTS_<wbr>SLAVE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#opts_tailable_cursor" class="tsd-kind-icon">OPTS_<wbr>TAILABLE_<wbr>CURSOR</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_compressed" class="tsd-kind-icon">OP_<wbr>COMPRESSED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_delete" class="tsd-kind-icon">OP_<wbr>DELETE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_getmore" class="tsd-kind-icon">OP_<wbr>GETMORE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_insert" class="tsd-kind-icon">OP_<wbr>INSERT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_kill_cursors" class="tsd-kind-icon">OP_<wbr>KILL_<wbr>CURSORS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_msg" class="tsd-kind-icon">OP_<wbr>MSG</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_query" class="tsd-kind-icon">OP_<wbr>QUERY</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_query_keys" class="tsd-kind-icon">OP_<wbr>QUERY_<wbr>KEYS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_reply" class="tsd-kind-icon">OP_<wbr>REPLY</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#op_update" class="tsd-kind-icon">OP_<wbr>UPDATE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#protocol_mongodb" class="tsd-kind-icon">PROTOCOL_<wbr>MONGODB</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#protocol_mongodb_srv" class="tsd-kind-icon">PROTOCOL_<wbr>MONGODB_<wbr>SRV</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#query_failure" class="tsd-kind-icon">QUERY_<wbr>FAILURE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#remove" class="tsd-kind-icon">REMOVE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#response_fields" class="tsd-kind-icon">RESPONSE_<wbr>FIELDS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retryable_error_codes" class="tsd-kind-icon">RETRYABLE_<wbr>ERROR_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retryable_wire_version" class="tsd-kind-icon">RETRYABLE_<wbr>WIRE_<wbr>VERSION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retryable_write_error_codes" class="tsd-kind-icon">RETRYABLE_<wbr>WRITE_<wbr>ERROR_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retryable_write_operations" class="tsd-kind-icon">RETRYABLE_<wbr>WRITE_<wbr>OPERATIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sdam_node_shutting_down_error_codes" class="tsd-kind-icon">SDAM_<wbr>NODE_<wbr>SHUTTING_<wbr>DOWN_<wbr>ERROR_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sdam_notmaster_codes" class="tsd-kind-icon">SDAM_<wbr>NOTMASTER_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sdam_recovering_codes" class="tsd-kind-icon">SDAM_<wbr>RECOVERING_<wbr>CODES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#selection_timeout" class="tsd-kind-icon">SELECTION_<wbr>TIMEOUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sensitive_commands" class="tsd-kind-icon">SENSITIVE_<wbr>COMMANDS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#server_relay_events" class="tsd-kind-icon">SERVER_<wbr>RELAY_<wbr>EVENTS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#shard_config_stale" class="tsd-kind-icon">SHARD_<wbr>CONFIG_<wbr>STALE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#smallest_max_staleness_seconds" class="tsd-kind-icon">SMALLEST_<wbr>MAX_<wbr>STALENESS_<wbr>SECONDS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#socket_error_events" class="tsd-kind-icon">SOCKET_<wbr>ERROR_<wbr>EVENTS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#socket_error_event_list" class="tsd-kind-icon">SOCKET_<wbr>ERROR_<wbr>EVENT_<wbr>LIST</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_closed" class="tsd-kind-icon">STATE_<wbr>CLOSED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_closing" class="tsd-kind-icon">STATE_<wbr>CLOSING</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_connected" class="tsd-kind-icon">STATE_<wbr>CONNECTED</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_connecting" class="tsd-kind-icon">STATE_<wbr>CONNECTING</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_idle" class="tsd-kind-icon">STATE_<wbr>IDLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#state_monitoring" class="tsd-kind-icon">STATE_<wbr>MONITORING</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#string_options" class="tsd-kind-icon">STRING_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#supported_protocols" class="tsd-kind-icon">SUPPORTED_<wbr>PROTOCOLS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#supports_write_concern_and_collation" class="tsd-kind-icon">SUPPORTS_<wbr>WRITE_<wbr>CONCERN_<wbr>AND_<wbr>COLLATION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_command_collection" class="tsd-kind-icon">SYSTEM_<wbr>COMMAND_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_index_collection" class="tsd-kind-icon">SYSTEM_<wbr>INDEX_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_js_collection" class="tsd-kind-icon">SYSTEM_<wbr>JS_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_namespace_collection" class="tsd-kind-icon">SYSTEM_<wbr>NAMESPACE_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_profile_collection" class="tsd-kind-icon">SYSTEM_<wbr>PROFILE_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#system_user_collection" class="tsd-kind-icon">SYSTEM_<wbr>USER_<wbr>COLLECTION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#snappy" class="tsd-kind-icon">Snappy</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#unknown_repl_write_concern_code" class="tsd-kind-icon">UNKNOWN_<wbr>REPL_<wbr>WRITE_<wbr>CONCERN_<wbr>CODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#unsatisfiable_write_concern_code" class="tsd-kind-icon">UNSATISFIABLE_<wbr>WRITE_<wbr>CONCERN_<wbr>CODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#update" class="tsd-kind-icon">UPDATE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#username_required_mechanisms" class="tsd-kind-icon">USERNAME_<wbr>REQUIRED_<wbr>MECHANISMS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#user_explicit_txn_end_states" class="tsd-kind-icon">USER_<wbr>EXPLICIT_<wbr>TXN_<wbr>END_<wbr>STATES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#valid_auth_mechanisms" class="tsd-kind-icon">VALID_<wbr>AUTH_<wbr>MECHANISMS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#valid_index_options" class="tsd-kind-icon">VALID_<wbr>INDEX_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#valid_pool_options" class="tsd-kind-icon">VALID_<wbr>POOL_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#valid_pool_option_names" class="tsd-kind-icon">VALID_<wbr>POOL_<wbr>OPTION_<wbr>NAMES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#writable_server_types" class="tsd-kind-icon">WRITABLE_<wbr>SERVER_<wbr>TYPES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#write_concern_error" class="tsd-kind-icon">WRITE_<wbr>CONCERN_<wbr>ERROR</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#_hicache" class="tsd-kind-icon">_hi<wbr>Cache</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#_hicachecount" class="tsd-kind-icon">_hi<wbr>Cache<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#_requestid" class="tsd-kind-icon">_request<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#admin" class="tsd-kind-icon">admin</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aws4" class="tsd-kind-icon">aws4</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#classfilters" class="tsd-kind-icon">class<wbr>Filters</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#client" class="tsd-kind-icon">client</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#collection" class="tsd-kind-icon">collection</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#collectionkeys" class="tsd-kind-icon">collection<wbr>Keys</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#currentlogger" class="tsd-kind-icon">current<wbr>Logger</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#db" class="tsd-kind-icon">db</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#exclusionlist" class="tsd-kind-icon">exclusion<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#fields" class="tsd-kind-icon">fields</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#filteredclasses" class="tsd-kind-icon">filtered<wbr>Classes</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#flags" class="tsd-kind-icon">flags</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#globaltopologycounter" class="tsd-kind-icon">global<wbr>Topology<wbr>Counter</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#groupfunction" class="tsd-kind-icon">group<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#ignoreoptionnames" class="tsd-kind-icon">ignore<wbr>Option<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kautoencrypter" class="tsd-kind-icon">k<wbr>Auto<wbr>Encrypter</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kbeforehandshake" class="tsd-kind-icon">k<wbr>Before<wbr>Handshake</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kbuffer" class="tsd-kind-icon">k<wbr>Buffer</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kcancellationtoken" class="tsd-kind-icon">k<wbr>Cancellation<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kcancelled" class="tsd-kind-icon">k<wbr>Cancelled</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kclustertime" class="tsd-kind-icon">k<wbr>Cluster<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kconnection" class="tsd-kind-icon">k<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kconnectioncounter" class="tsd-kind-icon">k<wbr>Connection<wbr>Counter</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kconnections" class="tsd-kind-icon">k<wbr>Connections</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kdefaultmaxbsonmessagesize" class="tsd-kind-icon">k<wbr>Default<wbr>Max<wbr>Bson<wbr>Message<wbr>Size</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kdescription" class="tsd-kind-icon">k<wbr>Description</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kerrorlabels" class="tsd-kind-icon">k<wbr>Error<wbr>Labels</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kgeneration" class="tsd-kind-icon">k<wbr>Generation</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kismaster" class="tsd-kind-icon">k<wbr>IsMaster</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#klastusetime" class="tsd-kind-icon">k<wbr>Last<wbr>Use<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#klogger" class="tsd-kind-icon">k<wbr>Logger</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kmessagestream" class="tsd-kind-icon">k<wbr>Message<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kminpoolsizetimer" class="tsd-kind-icon">k<wbr>Min<wbr>Pool<wbr>Size<wbr>Timer</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kmonitor" class="tsd-kind-icon">k<wbr>Monitor</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kmonitorid" class="tsd-kind-icon">k<wbr>Monitor<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kpermits" class="tsd-kind-icon">k<wbr>Permits</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kpromise" class="tsd-kind-icon">k<wbr>Promise</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kqueue" class="tsd-kind-icon">k<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#krttpinger" class="tsd-kind-icon">kRTTPinger</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kresumequeue" class="tsd-kind-icon">k<wbr>Resume<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kroundtriptime" class="tsd-kind-icon">k<wbr>Round<wbr>Trip<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kserver" class="tsd-kind-icon">k<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kstream" class="tsd-kind-icon">k<wbr>Stream</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kwaitqueue" class="tsd-kind-icon">k<wbr>Wait<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#legacyoptionnames" class="tsd-kind-icon">legacy<wbr>Option<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#legaloptionnames" class="tsd-kind-icon">legal<wbr>Option<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#level" class="tsd-kind-icon">level</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#levelvalues" class="tsd-kind-icon">level<wbr>Values</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mergekeys" class="tsd-kind-icon">merge<wbr>Keys</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#minwireversionforshardedtransactions" class="tsd-kind-icon">min<wbr>Wire<wbr>Version<wbr>For<wbr>Sharded<wbr>Transactions</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#pid" class="tsd-kind-icon">pid</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#saslprep" class="tsd-kind-icon">saslprep</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#statetransition" class="tsd-kind-icon">state<wbr>Transition</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#uncompressiblecommands" class="tsd-kind-icon">uncompressible<wbr>Commands</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#validoptionnames" class="tsd-kind-icon">valid<wbr>Option<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#writeconcernkeys" class="tsd-kind-icon">write<wbr>Concern<wbr>Keys</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#h" class="tsd-kind-icon">H</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hi" class="tsd-kind-icon">HI</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hmac" class="tsd-kind-icon">HMAC</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#__handleerror" class="tsd-kind-icon">__handle<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_command" class="tsd-kind-icon">_command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_cryptcommand" class="tsd-kind-icon">_crypt<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_delete" class="tsd-kind-icon">_delete</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_drop" class="tsd-kind-icon">_drop</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_findandmodify" class="tsd-kind-icon">_find<wbr>And<wbr>Modify</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_hicachepurge" class="tsd-kind-icon">_hi<wbr>Cache<wbr>Purge</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_rename" class="tsd-kind-icon">_rename</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#_setcursornotifiedimpl" class="tsd-kind-icon">_set<wbr>Cursor<wbr>Notified<wbr>Impl</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#addlisteners" class="tsd-kind-icon">add<wbr>Listeners</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#addtooperationslist" class="tsd-kind-icon">add<wbr>ToOperations<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applyauthexpectations" class="tsd-kind-icon">apply<wbr>Auth<wbr>Expectations</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applycommonqueryoptions" class="tsd-kind-icon">apply<wbr>Common<wbr>Query<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applyconnectionstringoption" class="tsd-kind-icon">apply<wbr>Connection<wbr>String<wbr>Option</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applyknownoptions" class="tsd-kind-icon">apply<wbr>Known<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applyretryablewrites" class="tsd-kind-icon">apply<wbr>Retryable<wbr>Writes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applysession" class="tsd-kind-icon">apply<wbr>Session</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#applywriteconcern" class="tsd-kind-icon">apply<wbr>Write<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#arraystrictequal" class="tsd-kind-icon">array<wbr>Strict<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#assertalive" class="tsd-kind-icon">assert<wbr>Alive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#assertrepeloptions" class="tsd-kind-icon">assert<wbr>Repel<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#asserttlsoptionsareequal" class="tsd-kind-icon">assert<wbr>Tls<wbr>Options<wbr>Are<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#attempttransaction" class="tsd-kind-icon">attempt<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#attempttransactioncommit" class="tsd-kind-icon">attempt<wbr>Transaction<wbr>Commit</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#basicreadvalidations" class="tsd-kind-icon">basic<wbr>Read<wbr>Validations</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#buildcountcommand" class="tsd-kind-icon">build<wbr>Count<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#calculatedurationinms" class="tsd-kind-icon">calculate<wbr>Duration<wbr>InMs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#calculateroundtriptime" class="tsd-kind-icon">calculate<wbr>Round<wbr>Trip<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#cancompress" class="tsd-kind-icon">can<wbr>Compress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkaborted" class="tsd-kind-icon">check<wbr>Aborted</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkchunksindex" class="tsd-kind-icon">check<wbr>Chunks<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkcollectionname" class="tsd-kind-icon">check<wbr>Collection<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkdone" class="tsd-kind-icon">check<wbr>Done</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkhasprimary" class="tsd-kind-icon">check<wbr>Has<wbr>Primary</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkindexes" class="tsd-kind-icon">check<wbr>Indexes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkserver" class="tsd-kind-icon">check<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checksupportedserver" class="tsd-kind-icon">check<wbr>Supported<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checktlsoptions" class="tsd-kind-icon">checkTLSOptions</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checktlsquerystring" class="tsd-kind-icon">checkTLSQuery<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#cleanusername" class="tsd-kind-icon">clean<wbr>Username</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#clearandremovetimerfrom" class="tsd-kind-icon">clear<wbr>And<wbr>Remove<wbr>Timer<wbr>From</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#clientfirstmessagebare" class="tsd-kind-icon">client<wbr>First<wbr>Message<wbr>Bare</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#collationnotsupported" class="tsd-kind-icon">collation<wbr>Not<wbr>Supported</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#collectionname" class="tsd-kind-icon">collection<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#collectionnamespace" class="tsd-kind-icon">collection<wbr>Namespace</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#command" class="tsd-kind-icon">command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#commandsupportsreadconcern" class="tsd-kind-icon">command<wbr>Supports<wbr>Read<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#comparedigest" class="tsd-kind-icon">compare<wbr>Digest</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#compareobjectid" class="tsd-kind-icon">compare<wbr>Object<wbr>Id</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#comparetopologyversion" class="tsd-kind-icon">compare<wbr>Topology<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#compress" class="tsd-kind-icon">compress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connect" class="tsd-kind-icon">connect</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connectservers" class="tsd-kind-icon">connect<wbr>Servers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connectionfailureerror" class="tsd-kind-icon">connection<wbr>Failure<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connectionisidle" class="tsd-kind-icon">connection<wbr>IsIdle</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connectionisstale" class="tsd-kind-icon">connection<wbr>IsStale</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#continuescramconversation" class="tsd-kind-icon">continue<wbr>Scram<wbr>Conversation</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createandconnectserver" class="tsd-kind-icon">create<wbr>And<wbr>Connect<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createchunkdoc" class="tsd-kind-icon">create<wbr>Chunk<wbr>Doc</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createconnection" class="tsd-kind-icon">create<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createfilesdoc" class="tsd-kind-icon">create<wbr>Files<wbr>Doc</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createlistener" class="tsd-kind-icon">create<wbr>Listener</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createtopology" class="tsd-kind-icon">create<wbr>Topology</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createunifiedoptions" class="tsd-kind-icon">create<wbr>Unified<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#databasename" class="tsd-kind-icon">database<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#databasenamespace" class="tsd-kind-icon">database<wbr>Namespace</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#debugoptions" class="tsd-kind-icon">debug<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#decompress" class="tsd-kind-icon">decompress</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#decoratecommand" class="tsd-kind-icon">decorate<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#decoratewithcollation" class="tsd-kind-icon">decorate<wbr>With<wbr>Collation</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#decoratewithreadconcern" class="tsd-kind-icon">decorate<wbr>With<wbr>Read<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#defaultauthproviders" class="tsd-kind-icon">default<wbr>Auth<wbr>Providers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#defaultmsghandler" class="tsd-kind-icon">default<wbr>Msg<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#defineaspects" class="tsd-kind-icon">define<wbr>Aspects</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#deletecallback" class="tsd-kind-icon">delete<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#deprecateoptions" class="tsd-kind-icon">deprecate<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#deriveregion" class="tsd-kind-icon">derive<wbr>Region</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#destroyconnection" class="tsd-kind-icon">destroy<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#destroyserver" class="tsd-kind-icon">destroy<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#doread" class="tsd-kind-icon">do<wbr>Read</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#dowrite" class="tsd-kind-icon">do<wbr>Write</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#draintimerqueue" class="tsd-kind-icon">drain<wbr>Timer<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#drainwaitqueue" class="tsd-kind-icon">drain<wbr>Wait<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#each" class="tsd-kind-icon">each</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#eachasync" class="tsd-kind-icon">each<wbr>Async</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#eachasyncseries" class="tsd-kind-icon">each<wbr>Async<wbr>Series</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#emitdeprecatedoptionwarning" class="tsd-kind-icon">emit<wbr>Deprecated<wbr>Option<wbr>Warning</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#emitdeprecationwarning" class="tsd-kind-icon">emit<wbr>Deprecation<wbr>Warning</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#endtransaction" class="tsd-kind-icon">end<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#ensureminpoolsize" class="tsd-kind-icon">ensure<wbr>Min<wbr>Pool<wbr>Size</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#errorstrictequal" class="tsd-kind-icon">error<wbr>Strict<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#executecommands" class="tsd-kind-icon">execute<wbr>Commands</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#executelegacyoperation" class="tsd-kind-icon">execute<wbr>Legacy<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#executeoperation" class="tsd-kind-icon">execute<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#executescram" class="tsd-kind-icon">execute<wbr>Scram</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#executewithserverselection" class="tsd-kind-icon">execute<wbr>With<wbr>Server<wbr>Selection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#executewriteoperation" class="tsd-kind-icon">execute<wbr>Write<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#extractcommand" class="tsd-kind-icon">extract<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#extractcommandname" class="tsd-kind-icon">extract<wbr>Command<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#extractconnectiondetails" class="tsd-kind-icon">extract<wbr>Connection<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#extractreply" class="tsd-kind-icon">extract<wbr>Reply</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#filteroptions" class="tsd-kind-icon">filter<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#formatsortvalue" class="tsd-kind-icon">format<wbr>Sort<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#formattedorderclause" class="tsd-kind-icon">formatted<wbr>Order<wbr>Clause</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#generatecredentials" class="tsd-kind-icon">generate<wbr>Credentials</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getcursor" class="tsd-kind-icon">get<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getdefaultauthmechanism" class="tsd-kind-icon">get<wbr>Default<wbr>Auth<wbr>Mechanism</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getmore" class="tsd-kind-icon">get<wbr>More</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getreadpreference" class="tsd-kind-icon">get<wbr>Read<wbr>Preference</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getsingleproperty" class="tsd-kind-icon">get<wbr>Single<wbr>Property</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getwriteoptions" class="tsd-kind-icon">get<wbr>Write<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#handleendoption" class="tsd-kind-icon">handle<wbr>End<wbr>Option</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#handlemongowriteconcernerror" class="tsd-kind-icon">handle<wbr>Mongo<wbr>Write<wbr>Concern<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#handlestartoption" class="tsd-kind-icon">handle<wbr>Start<wbr>Option</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hasatomicoperators" class="tsd-kind-icon">has<wbr>Atomic<wbr>Operators</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hasnottimedout" class="tsd-kind-icon">has<wbr>Not<wbr>Timed<wbr>Out</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hassessionsupport" class="tsd-kind-icon">has<wbr>Session<wbr>Support</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#inactivetransaction" class="tsd-kind-icon">in<wbr>Active<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#indexinformation" class="tsd-kind-icon">index<wbr>Information</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#init" class="tsd-kind-icon">init</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeorderedbulkop" class="tsd-kind-icon">initialize<wbr>Ordered<wbr>Bulk<wbr>Op</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeunorderedbulkop" class="tsd-kind-icon">initialize<wbr>Unordered<wbr>Bulk<wbr>Op</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#insert" class="tsd-kind-icon">insert</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#insertdocuments" class="tsd-kind-icon">insert<wbr>Documents</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#instrument" class="tsd-kind-icon">instrument</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isclientencryptionenabled" class="tsd-kind-icon">is<wbr>Client<wbr>Encryption<wbr>Enabled</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isconnectiondead" class="tsd-kind-icon">is<wbr>Connection<wbr>Dead</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iscursor" class="tsd-kind-icon">is<wbr>Cursor</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iscursordeadandkilled" class="tsd-kind-icon">is<wbr>Cursor<wbr>Dead<wbr>And<wbr>Killed</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iscursordeadbutnotkilled" class="tsd-kind-icon">is<wbr>Cursor<wbr>Dead<wbr>But<wbr>Notkilled</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iscursorkilled" class="tsd-kind-icon">is<wbr>Cursor<wbr>Killed</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isinclosestate" class="tsd-kind-icon">is<wbr>InClose<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#ismaxtimemsexpirederror" class="tsd-kind-icon">is<wbr>Max<wbr>TimeMSExpired<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isnetworkerrorbeforehandshake" class="tsd-kind-icon">is<wbr>Network<wbr>Error<wbr>Before<wbr>Handshake</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isnetworktimeouterror" class="tsd-kind-icon">is<wbr>Network<wbr>Timeout<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isnodeshuttingdownerror" class="tsd-kind-icon">is<wbr>Node<wbr>Shutting<wbr>Down<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isnotmastererror" class="tsd-kind-icon">is<wbr>Not<wbr>Master<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isobject" class="tsd-kind-icon">is<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#ispromiselike" class="tsd-kind-icon">is<wbr>Promise<wbr>Like</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isrecoveringerror" class="tsd-kind-icon">is<wbr>Recovering<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isresumableerror" class="tsd-kind-icon">is<wbr>Resumable<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isretryableerror" class="tsd-kind-icon">is<wbr>Retryable<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isretryablewriteerror" class="tsd-kind-icon">is<wbr>Retryable<wbr>Write<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isretryablewritessupported" class="tsd-kind-icon">is<wbr>Retryable<wbr>Writes<wbr>Supported</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#issdamunrecoverableerror" class="tsd-kind-icon">isSDAMUnrecoverable<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#issharded" class="tsd-kind-icon">is<wbr>Sharded</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#istransactioncommand" class="tsd-kind-icon">is<wbr>Transaction<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isunknowntransactioncommitresult" class="tsd-kind-icon">is<wbr>Unknown<wbr>Transaction<wbr>Commit<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iswritecommand" class="tsd-kind-icon">is<wbr>Write<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#killcursors" class="tsd-kind-icon">kill<wbr>Cursors</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#knownfilter" class="tsd-kind-icon">known<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#latencywindowreducer" class="tsd-kind-icon">latency<wbr>Window<wbr>Reducer</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#listcollectionstransforms" class="tsd-kind-icon">list<wbr>Collections<wbr>Transforms</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loadadmin" class="tsd-kind-icon">load<wbr>Admin</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loadcollection" class="tsd-kind-icon">load<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loaddb" class="tsd-kind-icon">load<wbr>Db</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loadmongoclient" class="tsd-kind-icon">load<wbr>Mongo<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loop" class="tsd-kind-icon">loop</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeclientmetadata" class="tsd-kind-icon">make<wbr>Client<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makecompressioninfo" class="tsd-kind-icon">make<wbr>Compression<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeconnection" class="tsd-kind-icon">make<wbr>Connection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makecounter" class="tsd-kind-icon">make<wbr>Counter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeerrormodule" class="tsd-kind-icon">make<wbr>Error<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makefirstmessage" class="tsd-kind-icon">make<wbr>First<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeindexspec" class="tsd-kind-icon">make<wbr>Index<wbr>Spec</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeinterruptableasyncinterval" class="tsd-kind-icon">make<wbr>Interruptable<wbr>Async<wbr>Interval</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeoperationhandler" class="tsd-kind-icon">make<wbr>Operation<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makeservertrampoline" class="tsd-kind-icon">make<wbr>Server<wbr>Trampoline</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makestatemachine" class="tsd-kind-icon">make<wbr>State<wbr>Machine</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#maketempcredentials" class="tsd-kind-icon">make<wbr>Temp<wbr>Credentials</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#maketopologyversion" class="tsd-kind-icon">make<wbr>Topology<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#makewriteconcernresultobject" class="tsd-kind-icon">make<wbr>Write<wbr>Concern<wbr>Result<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mapinsertmanyresults" class="tsd-kind-icon">map<wbr>Insert<wbr>Many<wbr>Results</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#markserverunknown" class="tsd-kind-icon">mark<wbr>Server<wbr>Unknown</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#matchesparentdomain" class="tsd-kind-icon">matches<wbr>Parent<wbr>Domain</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#maxstalenessreducer" class="tsd-kind-icon">max<wbr>Staleness<wbr>Reducer</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-private">
+						<a href="globals.html#maxwireversion" class="tsd-kind-icon">max<wbr>Wire<wbr>Version</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#maybepromise" class="tsd-kind-icon">maybe<wbr>Promise</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mayberedact" class="tsd-kind-icon">maybe<wbr>Redact</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#measureroundtriptime" class="tsd-kind-icon">measure<wbr>Round<wbr>Trip<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mergebatchresults" class="tsd-kind-icon">merge<wbr>Batch<wbr>Results</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#mergeoptions" class="tsd-kind-icon">merge<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#mergeoptionsandwriteconcern" class="tsd-kind-icon">merge<wbr>Options<wbr>And<wbr>Write<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#messagehandler" class="tsd-kind-icon">message<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#monitorserver" class="tsd-kind-icon">monitor<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#namespace" class="tsd-kind-icon">namespace</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#nearestfilter" class="tsd-kind-icon">nearest<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#nextfunction" class="tsd-kind-icon">next<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#nextobject" class="tsd-kind-icon">next<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#noop" class="tsd-kind-icon">noop</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#normalizehintfield" class="tsd-kind-icon">normalize<wbr>Hint<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#now" class="tsd-kind-icon">now</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseconnectoptions" class="tsd-kind-icon">parse<wbr>Connect<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseconnectionstring" class="tsd-kind-icon">parse<wbr>Connection<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseindexoptions" class="tsd-kind-icon">parse<wbr>Index<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsepayload" class="tsd-kind-icon">parse<wbr>Payload</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsequerystring" class="tsd-kind-icon">parse<wbr>Query<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsequerystringitemvalue" class="tsd-kind-icon">parse<wbr>Query<wbr>String<wbr>Item<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parseservertype" class="tsd-kind-icon">parse<wbr>Server<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsesrvconnectionstring" class="tsd-kind-icon">parse<wbr>Srv<wbr>Connection<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsessloptions" class="tsd-kind-icon">parse<wbr>Ssl<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#parsestringseedlist" class="tsd-kind-icon">parse<wbr>String<wbr>Seedlist</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#passworddigest" class="tsd-kind-icon">password<wbr>Digest</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#performinitialhandshake" class="tsd-kind-icon">perform<wbr>Initial<wbr>Handshake</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#preparedocs" class="tsd-kind-icon">prepare<wbr>Docs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#preparefindcommand" class="tsd-kind-icon">prepare<wbr>Find<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#preparehandshakedocument" class="tsd-kind-icon">prepare<wbr>Handshake<wbr>Document</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#preparelegacyfindquery" class="tsd-kind-icon">prepare<wbr>Legacy<wbr>Find<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#primaryfilter" class="tsd-kind-icon">primary<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processerror" class="tsd-kind-icon">process<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processincomingdata" class="tsd-kind-icon">process<wbr>Incoming<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processnewchange" class="tsd-kind-icon">process<wbr>New<wbr>Change</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processresumequeue" class="tsd-kind-icon">process<wbr>Resume<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processscope" class="tsd-kind-icon">process<wbr>Scope</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#processwaitqueue" class="tsd-kind-icon">process<wbr>Wait<wbr>Queue</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#query" class="tsd-kind-icon">query</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#randomselection" class="tsd-kind-icon">random<wbr>Selection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#readpreferenceserverselector" class="tsd-kind-icon">read<wbr>Preference<wbr>Server<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#registerdeprecatedeventnotifiers" class="tsd-kind-icon">register<wbr>Deprecated<wbr>Event<wbr>Notifiers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#relayevents" class="tsd-kind-icon">relay<wbr>Events</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#remove" class="tsd-kind-icon">remove</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#removedocuments" class="tsd-kind-icon">remove<wbr>Documents</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#request" class="tsd-kind-icon">request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resetmonitorstate" class="tsd-kind-icon">reset<wbr>Monitor<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolveclustertime" class="tsd-kind-icon">resolve<wbr>Cluster<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolveerror" class="tsd-kind-icon">resolve<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolveoptions" class="tsd-kind-icon">resolve<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolvereadconcern" class="tsd-kind-icon">resolve<wbr>Read<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolvetlsoptions" class="tsd-kind-icon">resolveTLSOptions</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolvewriteconcern" class="tsd-kind-icon">resolve<wbr>Write<wbr>Concern</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#secondaryfilter" class="tsd-kind-icon">secondary<wbr>Filter</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#selectserverforsessionsupport" class="tsd-kind-icon">select<wbr>Server<wbr>For<wbr>Session<wbr>Support</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setcursordeadandnotified" class="tsd-kind-icon">set<wbr>Cursor<wbr>Dead<wbr>And<wbr>Notified</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setcursornotified" class="tsd-kind-icon">set<wbr>Cursor<wbr>Notified</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shouldhandlestatechangeerror" class="tsd-kind-icon">should<wbr>Handle<wbr>State<wbr>Change<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shouldretryoperation" class="tsd-kind-icon">should<wbr>Retry<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#shouldretrywrite" class="tsd-kind-icon">should<wbr>Retry<wbr>Write</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#splitarrayofmultiplereadpreferencetags" class="tsd-kind-icon">split<wbr>Array<wbr>OfMultiple<wbr>Read<wbr>Preference<wbr>Tags</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#srvpollinghandler" class="tsd-kind-icon">srv<wbr>Polling<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#streamidentifier" class="tsd-kind-icon">stream<wbr>Identifier</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#supportsopmsg" class="tsd-kind-icon">supports<wbr>OpMsg</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#supportsrecoverytoken" class="tsd-kind-icon">supports<wbr>Recovery<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#supportsretryablereads" class="tsd-kind-icon">supports<wbr>Retryable<wbr>Reads</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#supportsretryablewrites" class="tsd-kind-icon">supports<wbr>Retryable<wbr>Writes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tagsetmatch" class="tsd-kind-icon">tag<wbr>Set<wbr>Match</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tagsetreducer" class="tsd-kind-icon">tag<wbr>Set<wbr>Reducer</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tagsstrictequal" class="tsd-kind-icon">tags<wbr>Strict<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#throwifinitialized" class="tsd-kind-icon">throw<wbr>IfInitialized</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#topologytypeforservertype" class="tsd-kind-icon">topology<wbr>Type<wbr>For<wbr>Server<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#topologytypefromoptions" class="tsd-kind-icon">topology<wbr>Type<wbr>From<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#transformurloptions" class="tsd-kind-icon">transform<wbr>Url<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#translateoptions" class="tsd-kind-icon">translate<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#translatetlsoptions" class="tsd-kind-icon">translateTLSOptions</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#update" class="tsd-kind-icon">update</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updatedocuments" class="tsd-kind-icon">update<wbr>Documents</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updatersfromprimary" class="tsd-kind-icon">update<wbr>RsFrom<wbr>Primary</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updatersnoprimaryfrommember" class="tsd-kind-icon">update<wbr>RsNo<wbr>Primary<wbr>From<wbr>Member</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updaterswithprimaryfrommember" class="tsd-kind-icon">update<wbr>RsWith<wbr>Primary<wbr>From<wbr>Member</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updateservers" class="tsd-kind-icon">update<wbr>Servers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updatesessionfromresponse" class="tsd-kind-icon">update<wbr>Session<wbr>From<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#userexplicitlyendedtransaction" class="tsd-kind-icon">user<wbr>Explicitly<wbr>Ended<wbr>Transaction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#uuidv4" class="tsd-kind-icon">uuid<wbr>V4</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#validoptions" class="tsd-kind-icon">valid<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#validatedatabasename" class="tsd-kind-icon">validate<wbr>Database<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#waitforfile" class="tsd-kind-icon">wait<wbr>For<wbr>File</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#waitforindexes" class="tsd-kind-icon">wait<wbr>For<wbr>Indexes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#waitfortopologyconnected" class="tsd-kind-icon">wait<wbr>For<wbr>Topology<wbr>Connected</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#writableserverselector" class="tsd-kind-icon">writable<wbr>Server<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#write" class="tsd-kind-icon">write</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#writecommand" class="tsd-kind-icon">write<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#writeremnant" class="tsd-kind-icon">write<wbr>Remnant</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#x509authenticatecommand" class="tsd-kind-icon">x509<wbr>Authenticate<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#xor" class="tsd-kind-icon">xor</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#auth_providers" class="tsd-kind-icon">AUTH_<wbr>PROVIDERS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#case_translation" class="tsd-kind-icon">CASE_<wbr>TRANSLATION</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#change_domain_types" class="tsd-kind-icon">CHANGE_<wbr>DOMAIN_<wbr>TYPES</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#cursorstate" class="tsd-kind-icon">Cursor<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#default_gridfs_bucket_options" class="tsd-kind-icon">DEFAULT_<wbr>GRIDFS_<wbr>BUCKET_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#legacy_find_query_map" class="tsd-kind-icon">LEGACY_<wbr>FIND_<wbr>QUERY_<wbr>MAP</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#topology_defaults" class="tsd-kind-icon">TOPOLOGY_<wbr>DEFAULTS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#bsonoptions" class="tsd-kind-icon">bson<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#hilengthmap" class="tsd-kind-icon">hi<wbr>Length<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#statemachine" class="tsd-kind-icon">state<wbr>Machine</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#store" class="tsd-kind-icon">store</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/pages.js"></script>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

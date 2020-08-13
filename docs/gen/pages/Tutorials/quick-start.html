@@ -1,0 +1,463 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Quick Start | mongodb</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.js" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">mongodb</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="quick-start.html">Tutorials</a>
+				</li>
+				<li>
+					<a href="quick-start.html">Quick Start</a>
+				</li>
+			</ul>
+			<h1>Quick Start</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+					<h1>Quick Start</h1>
+				</a>
+				<p>This guide will show you how to set up a simple application using Node.js and MongoDB. Its scope is only how to set up the driver and perform the simple CRUD operations. For more in-depth coverage, see the [tutorials]({{&lt; relref &quot;reference/main.md&quot; &gt;}}).</p>
+				<a href="#create-the-packagejson-file" id="create-the-packagejson-file" style="color: inherit; text-decoration: none;">
+					<h2>Create the package.json file</h2>
+				</a>
+				<p>First, create a directory where your application will live.</p>
+				<pre><code><span class="hljs-built_in">mkdir</span> myproject
+<span class="hljs-built_in">cd</span> myproject</code></pre><p>Enter the following command and answer the questions to create the initial structure for your new project:</p>
+				<pre><code><span class="hljs-built_in">npm</span> init</code></pre><p>Next, install the driver dependency.</p>
+				<pre><code>npm <span class="hljs-keyword">install</span> mongodb <span class="hljs-comment">--save</span></code></pre><p>You should see <strong>NPM</strong> download a lot of files. Once it&#39;s done you&#39;ll find all the downloaded packages under the <strong>node_modules</strong> directory.</p>
+				<a href="#start-a-mongodb-server" id="start-a-mongodb-server" style="color: inherit; text-decoration: none;">
+					<h2>Start a MongoDB Server</h2>
+				</a>
+				<p>For complete MongoDB installation instructions, see <a href="https://docs.mongodb.org/manual/installation/">the manual</a>.</p>
+				<ol>
+					<li>Download the right MongoDB version from <a href="https://www.mongodb.org/downloads">MongoDB</a></li>
+					<li>Create a database directory (in this case under <strong>/data</strong>).</li>
+					<li>Install and start a <code>mongod</code> process.</li>
+				</ol>
+				<pre><code>mongod <span class="hljs-attribute">--dbpath</span>=/data</code></pre><p>You should see the <strong>mongod</strong> process start up and print some status information.</p>
+				<a href="#connect-to-mongodb" id="connect-to-mongodb" style="color: inherit; text-decoration: none;">
+					<h2>Connect to MongoDB</h2>
+				</a>
+				<p>Create a new <strong>app.js</strong> file and add the following code to try out some basic CRUD
+				operations using the MongoDB driver.</p>
+				<p>Add code to connect to the server and the database <strong>myproject</strong>:</p>
+				<pre><code class="language-js">{{% basic-connection %}}</code></pre>
+				<p>Run your app from the command line with:</p>
+				<pre><code><span class="hljs-keyword">node</span> <span class="hljs-title">app</span>.js</code></pre><p>The application should print <strong>Connected successfully to server</strong> to the console.</p>
+				<a href="#insert-a-document" id="insert-a-document" style="color: inherit; text-decoration: none;">
+					<h2>Insert a Document</h2>
+				</a>
+				<p>Add to <strong>app.js</strong> the following function which uses the <strong>insertMany</strong>
+				method to add three documents to the <strong>documents</strong> collection.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> insertDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Insert some documents</span>
+  collection.insertMany([
+    {<span class="hljs-attr">a</span> : <span class="hljs-number">1</span>}, {<span class="hljs-attr">a</span> : <span class="hljs-number">2</span>}, {<span class="hljs-attr">a</span> : <span class="hljs-number">3</span>}
+  ], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">3</span>, result.result.n);
+    assert.equal(<span class="hljs-number">3</span>, result.ops.length);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Inserted 3 documents into the collection"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>The <strong>insert</strong> command returns an object with the following fields:</p>
+				<ul>
+					<li><strong>result</strong> Contains the result document from MongoDB</li>
+					<li><strong>ops</strong> Contains the documents inserted with added <strong>_id</strong> fields</li>
+					<li><strong>connection</strong> Contains the connection used to perform the insert</li>
+				</ul>
+				<p>Add the following code to call the <strong>insertDocuments</strong> function:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(url, {<span class="hljs-attr">useNewUrlParser</span>: <span class="hljs-literal">true</span>});
+
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    client.close();
+  });
+});</code></pre>
+				<p>Run the updated <strong>app.js</strong> file:</p>
+				<pre><code><span class="hljs-keyword">node</span> <span class="hljs-title">app</span>.js</code></pre><p>The operation returns the following output:</p>
+				<pre><code>Connected successfully <span class="hljs-keyword">to</span><span class="hljs-built_in"> server
+</span>Inserted 3 documents into the collection</code></pre>
+				<a href="#find-all-documents" id="find-all-documents" style="color: inherit; text-decoration: none;">
+					<h2>Find All Documents</h2>
+				</a>
+				<p>Add a query that returns all the documents.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> findDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Find some documents</span>
+  collection.find({}).toArray(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, docs</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Found the following records"</span>);
+    <span class="hljs-built_in">console</span>.log(docs)
+    callback(docs);
+  });
+}</code></pre>
+				<!---
+Changed console.dir to console.log, since most users will be running these examples from the command line
+rather than from within a browser console, and console.log returns better formatting.
+-->
+				<p>This query returns all the documents in the <strong>documents</strong> collection. Add the <strong>findDocument</strong> method to the <strong>client.connect</strong> callback:</p>
+				<!---
+Removed the assert line for number of documents returned on the grounds that it's too brittle.
+It's better if these code examples are idempotent, and if this one
+is run repeatedly the number of documents in the collection will change.
+-->
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(url);
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected correctly to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    findDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<a href="#find-documents-with-a-query-filter" id="find-documents-with-a-query-filter" style="color: inherit; text-decoration: none;">
+					<h2>Find Documents with a Query Filter</h2>
+				</a>
+				<p>Add a query filter to find only documents which meet the query criteria.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> findDocuments = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Find some documents</span>
+  collection.find({<span class="hljs-string">'a'</span>: <span class="hljs-number">3</span>}).toArray(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, docs</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Found the following records"</span>);
+    <span class="hljs-built_in">console</span>.log(docs);
+    callback(docs);
+  });
+}</code></pre>
+				<p>Only the documents which match <code>&#39;a&#39; : 3</code> should be returned.</p>
+				<a href="#update-a-document" id="update-a-document" style="color: inherit; text-decoration: none;">
+					<h2>Update a document</h2>
+				</a>
+				<p>The following operation updates a document in the <strong>documents</strong> collection.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> updateDocument = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Update document where a is 2, set b equal to 1</span>
+  collection.updateOne({ <span class="hljs-attr">a</span> : <span class="hljs-number">2</span> }
+    , { <span class="hljs-attr">$set</span>: { <span class="hljs-attr">b</span> : <span class="hljs-number">1</span> } }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">1</span>, result.result.n);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Updated the document with the field a equal to 2"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>The method updates the first document where the field <strong>a</strong> is equal to <strong>2</strong> by adding a new field <strong>b</strong> to the document set to <strong>1</strong>. Next, update the callback function from <strong>client.connect</strong> to include the update method.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(url);
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    updateDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<a href="#remove-a-document" id="remove-a-document" style="color: inherit; text-decoration: none;">
+					<h2>Remove a document</h2>
+				</a>
+				<p>Remove the document where the field <strong>a</strong> is equal to <strong>3</strong>.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> removeDocument = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'documents'</span>);
+  <span class="hljs-comment">// Delete document where a is 3</span>
+  collection.deleteOne({ <span class="hljs-attr">a</span> : <span class="hljs-number">3</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    assert.equal(err, <span class="hljs-literal">null</span>);
+    assert.equal(<span class="hljs-number">1</span>, result.result.n);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Removed the document with the field a equal to 3"</span>);
+    callback(result);
+  });
+}</code></pre>
+				<p>Add the new method to the <strong>client.connect</strong> callback function.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-comment">// Database Name</span>
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(url);
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    updateDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      removeDocument(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        client.close();
+      });
+    });
+  });
+});</code></pre>
+				<a href="#index-a-collection" id="index-a-collection" style="color: inherit; text-decoration: none;">
+					<h2>Index a Collection</h2>
+				</a>
+				<p><a href="https://docs.mongodb.org/manual/indexes/">Indexes</a> can improve your application&#39;s
+					performance. The following function creates an index on the <strong>a</strong> field in the
+				<strong>documents</strong> collection.</p>
+				<pre><code class="language-js">{{% index-collection %}}</code></pre>
+				<p>Add the <code>indexCollection</code> method to your app:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> MongoClient = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongodb'</span>).MongoClient;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">'assert'</span>);
+
+<span class="hljs-comment">// Connection URL</span>
+<span class="hljs-keyword">const</span> url = <span class="hljs-string">'mongodb://localhost:27017'</span>;
+
+<span class="hljs-keyword">const</span> dbName = <span class="hljs-string">'myproject'</span>;
+
+<span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(url);
+<span class="hljs-comment">// Use connect method to connect to the server</span>
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+  assert.equal(<span class="hljs-literal">null</span>, err);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Connected successfully to server"</span>);
+
+  <span class="hljs-keyword">const</span> db = client.db(dbName);
+
+  insertDocuments(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    indexCollection(db, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      client.close();
+    });
+  });
+});</code></pre>
+				<p>For more detailed information, see the [tutorials]({{&lt; relref &quot;tutorials/main.md&quot; &gt;}}).</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Documentation</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../Documentation/index.html">FAQ</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Tutorials</span>
+					</li>
+					<li class="current pp-nav pp-page pp-parent">
+						<a href="quick-start.html">Quick <wbr>Start</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/aggregation.html">aggregation</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/collations.html">collations</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/collections.html">collections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/commands.html">commands</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/create-indexes.html">create-<wbr>indexes</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/crud.html">crud</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/geospatial-search.html">geospatial-<wbr>search</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/main.html">main</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/projections.html">projections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="quick-start/text-search.html">text-<wbr>search</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="../../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../../modules/_kerberos_.html">&quot;kerberos&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/pages.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

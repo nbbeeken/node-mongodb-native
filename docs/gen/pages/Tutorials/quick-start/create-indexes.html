@@ -1,0 +1,363 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>create-indexes | mongodb</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../../assets/css/main.css">
+	<link rel="stylesheet" href="../../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../../assets/js/search.js" data-base="../../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../../index.html" class="title">mongodb</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../quick-start.html">Tutorials</a>
+				</li>
+				<li>
+					<a href="../quick-start.html">Quick Start</a>
+				</li>
+				<li>
+					<a href="create-indexes.html">create-indexes</a>
+				</li>
+			</ul>
+			<h1>create-indexes</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#create-indexes" id="create-indexes" style="color: inherit; text-decoration: none;">
+					<h1>Create Indexes</h1>
+				</a>
+				<p>To create an index on a field or fields, pass an index specification
+				document to the <code>createIndex()</code> method:</p>
+				<pre><code class="language-js">
+   { &lt;field1&gt;: &lt;type1&gt;, &lt;field2&gt;: &lt;type2&gt; ... }
+</code></pre>
+				<a href="#create-an-ascending-index" id="create-an-ascending-index" style="color: inherit; text-decoration: none;">
+					<h2>Create an Ascending Index</h2>
+				</a>
+				<p>For an ascending index type, specify <code>1</code> for <code>&lt;type&gt;</code>.</p>
+				<p>The following example creates an ascending index key for the
+				<code>dateOfBirth</code> field:</p>
+				<pre><code class="language-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createAscendingIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the users collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">dateOfBirth</span> : <span class="hljs-number">1</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(result);
+    callback(result);
+  });
+};
+</code></pre>
+				<a href="#create-a-descending-index" id="create-a-descending-index" style="color: inherit; text-decoration: none;">
+					<h2>Create a Descending Index</h2>
+				</a>
+				<p>For an descending index type, specify <code>-1</code> for <code>&lt;type&gt;</code>.</p>
+				<p>The following example specifies a descending index key on the
+				<code>lastName</code> field:</p>
+				<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createDescendingIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">lastName</span> : <span class="hljs-number">-1</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(result);
+    callback(result);
+  });
+};
+</code></pre>
+				<a href="#create-a-compound-index" id="create-a-compound-index" style="color: inherit; text-decoration: none;">
+					<h2>Create a Compound Index</h2>
+				</a>
+				<p>To specify a compound index, use the <code>compoundIndex</code> method.</p>
+				<p>The following example specifies a compound index key composed of the
+					<code>lastName</code> field sorted in descending order, followed by the
+				<code>dateOfBirth</code> field sorted in ascending order:</p>
+				<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCompoundIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">lastName</span> : <span class="hljs-number">-1</span>, <span class="hljs-attr">dateOfBirth</span> : <span class="hljs-number">1</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(result);
+    callback(result);
+  });
+};</code></pre>
+				<a href="#create-a-text-index" id="create-a-text-index" style="color: inherit; text-decoration: none;">
+					<h2>Create a Text Index</h2>
+				</a>
+				<p>MongoDB also provides
+					<a href="https://docs.mongodb.org/manual/core/index-text/">text</a> indexes to
+					support text search of string content. Text indexes can include any
+				field whose value is a string or an array of string elements.</p>
+				<p>This example specifies a text index key for the <code>comments</code> field:</p>
+				<pre><code class="language-js">{{% create-text-index %}}</code></pre>
+				<a href="#create-a-hashed-index" id="create-a-hashed-index" style="color: inherit; text-decoration: none;">
+					<h2>Create a Hashed Index</h2>
+				</a>
+				<p>To specify a <a href="https://docs.mongodb.org/manual/core/index-hashed/">hashed</a> index key,
+				use the <code>hashed</code> method.</p>
+				<p>This example specifies a hashed index key for the <code>timestamp</code> field:</p>
+				<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createHashedIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">timestamp</span> : <span class="hljs-string">"hashed"</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(result);
+    callback(result);
+  });
+};</code></pre>
+				<a href="#create-geospatial-indexes" id="create-geospatial-indexes" style="color: inherit; text-decoration: none;">
+					<h2>Create Geospatial Indexes</h2>
+				</a>
+				<p>There are also helpers for creating the index keys for the various
+				geospatial indexes supported by mongodb.</p>
+				<a href="#create-a-2dsphere-index" id="create-a-2dsphere-index" style="color: inherit; text-decoration: none;">
+					<h3>Create a <code>2dsphere</code> Index</h3>
+				</a>
+				<p>To specify a <a href="https://docs.mongodb.org/manual/core/2dsphere/">2dsphere</a>
+				index key, use one of the <code>geo2dsphere</code> methods.</p>
+				<p>This example specifies a 2dsphere index on the <code>location</code> field:</p>
+				<pre><code class="language-js">{{% create<span class="hljs-number">-2</span>dsphere-index %}}</code></pre>
+				<a href="#create-a-2d-index" id="create-a-2d-index" style="color: inherit; text-decoration: none;">
+					<h3>Create a <code>2d</code> Index</h3>
+				</a>
+				<p>To specify a <a href="https://docs.mongodb.org/manual/core/2d/">2d</a> index key, use the <code>geo2d</code>
+				method.</p>
+				<p>.. important::</p>
+				<p>   A 2d index is for data stored as points on a two-dimensional plane
+					and is intended for legacy coordinate pairs used in MongoDB 2.2 and
+				earlier.</p>
+				<p>This example specifies a 2d index on the <code>points</code> field:</p>
+				<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create2dIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">points</span> : <span class="hljs-string">"2d"</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(result);
+    callback(result);
+  });
+};</code></pre>
+				<a href="#indexoptions" id="indexoptions" style="color: inherit; text-decoration: none;">
+					<h2>IndexOptions</h2>
+				</a>
+				<p>In addition to the index specification document, <code>createIndex</code>
+					method can take an index options document, such as to create unique
+				indexes or partial indexes.</p>
+				<a href="#create-a-unique-index" id="create-a-unique-index" style="color: inherit; text-decoration: none;">
+					<h3>Create a Unique Index</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createUniqueIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">lastName</span> : <span class="hljs-number">-1</span>, <span class="hljs-attr">dateOfBirth</span> : <span class="hljs-number">1</span> },
+    { <span class="hljs-attr">unique</span>:<span class="hljs-literal">true</span> },
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(result);
+      callback(result);
+  });
+};</code></pre>
+				<a href="#create-a-partial-index" id="create-a-partial-index" style="color: inherit; text-decoration: none;">
+					<h3>Create a Partial Index</h3>
+				</a>
+				<pre><code class="language-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPartialIndex</span>(<span class="hljs-params">db, callback</span>) </span>{
+  <span class="hljs-comment">// Get the documents collection</span>
+  <span class="hljs-keyword">const</span> collection = db.collection(<span class="hljs-string">'users'</span>);
+  <span class="hljs-comment">// Create the index</span>
+  collection.createIndex(
+    { <span class="hljs-attr">lastName</span> : <span class="hljs-number">1</span>, <span class="hljs-attr">firstName</span>: <span class="hljs-number">1</span> },
+    { <span class="hljs-attr">partialFilterExpression</span>: { <span class="hljs-attr">points</span>: { <span class="hljs-attr">$gt</span>: <span class="hljs-number">5</span> } } },
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, result</span>) </span>{
+       <span class="hljs-built_in">console</span>.log(result);
+       callback(result);
+  });
+};</code></pre>
+				<p>For other index options, see <a href="https://docs.mongodb.org/manual/core/index-properties/">Index Options</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Documentation</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../../Documentation/index.html">FAQ</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Tutorials</span>
+					</li>
+					<li class=" pp-nav pp-page pp-parent pp-active">
+						<a href="../quick-start.html">Quick <wbr>Start</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="aggregation.html">aggregation</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="collations.html">collations</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="collections.html">collections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="commands.html">commands</a>
+					</li>
+					<li class="current pp-nav pp-page pp-child">
+						<a href="create-indexes.html">create-<wbr>indexes</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="crud.html">crud</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="geospatial-search.html">geospatial-<wbr>search</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="main.html">main</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="projections.html">projections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="text-search.html">text-<wbr>search</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="../../../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../../../modules/_kerberos_.html">&quot;kerberos&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../../assets/js/pages.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

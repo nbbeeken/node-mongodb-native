@@ -1,0 +1,341 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FAQ | mongodb</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.js" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">mongodb</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="index.html">Documentation</a>
+				</li>
+				<li>
+					<a href="index.html">FAQ</a>
+				</li>
+			</ul>
+			<h1>FAQ</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#what-is-the-difference-between-connecttimeoutms-sockettimeoutms-and-maxtimems-" id="what-is-the-difference-between-connecttimeoutms-sockettimeoutms-and-maxtimems-" style="color: inherit; text-decoration: none;">
+					<h1>What is the difference between connectTimeoutMS, socketTimeoutMS and maxTimeMS ?</h1>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Setting</th>
+							<th align="left">Default Value client.connect</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left">connectTimeoutMS</td>
+							<td align="left">30000</td>
+							<td align="left">The connectTimeoutMS sets the number of milliseconds a socket stays inactive before closing during the connection phase of the driver. That is to say, when the application initiates a connection, when a replica set connects to new members, or when a replica set reconnects to members. A value of 10000 milliseconds would mean the driver would wait up to 10 seconds for a response from a MongoDB server.</td>
+						</tr>
+						<tr>
+							<td align="left">socketTimeoutMS</td>
+							<td align="left">360000</td>
+							<td align="left">The socketTimeoutMS sets the number of milliseconds a socket stays inactive after the driver has successfully connected before closing. If the value is set to 360000 milliseconds, the socket closes if there is no activity during a 6 minutes window.</td>
+						</tr>
+						<tr>
+							<td align="left">maxTimeMS</td>
+							<td align="left">N/A</td>
+							<td align="left">The maxTimeMS setting specifies how long MongoDB should run an operation before cancelling it. If the maxTimeMS is set to 10000 milliseconds, any operation that runs over that limit returns a timeout error.</td>
+						</tr>
+				</tbody></table>
+				<a href="#fail-fast-during-connection" id="fail-fast-during-connection" style="color: inherit; text-decoration: none;">
+					<h4>Fail fast during connection</h4>
+				</a>
+				<p>In this scenario, the developer wants to ensure that the driver does not
+					hang during the connection phase or spend an unnecessarily long time
+				attempting to connect to replica set members who are not reachable.</p>
+				<p>As a general rule you should ensure that the <code>connectTimeoutMS</code> setting
+					is not lower than the longest network latency you have to a member of
+					the set. If one of the <code>secondary</code> members is on the other side of the
+					planet and has a latency of 10000 milliseconds, setting the
+					<code>connectTimeoutMS</code> to anything lower will prevent the driver from ever
+				connecting to that member.</p>
+				<a href="#sockettimeoutms-as-a-way-to-abort-operations" id="sockettimeoutms-as-a-way-to-abort-operations" style="color: inherit; text-decoration: none;">
+					<h3>socketTimeoutMS as a way to abort operations</h3>
+				</a>
+				<p>Developers sometimes try to use <code>socketTimeoutMS</code>
+					to end operations which may run for too long and slow
+				down the application, but doing so may not achieve the intended result.</p>
+				<p>Closing the socket forces a reconnect of the driver&#39;s connection pool
+					and introduces latency to any other operations which are queued up.
+					Chronically slow operations will therefore cause a large number of
+				reconnect requests, negatively impacting throughput and performance.</p>
+				<p>Also, closing the socket does not terminate the operation; it will continue
+					to run on the MongoDB server, which could cause data inconsistencies
+				if the application retries the operation on failure.</p>
+				<p>That said, there are some important use cases for <code>socketTimeoutMS</code>. It&#39;s
+					possible that a MongoDB process may error out, or that a misconfigured
+					firewall may close a socket connection without sending a <code>FIN</code> packet.
+					In these cases there is no way for the driver to detect that the
+					connection has died, and <code>socketTimeoutMS</code> is essential to ensure that the
+				sockets are closed correctly.</p>
+				<p>A good rule of thumb is to set <code>socketTimeoutMS</code> to two to three times the
+				length of the slowest operation which runs through the driver.</p>
+				<a href="#sockettimeoutms-and-large-connection-pools" id="sockettimeoutms-and-large-connection-pools" style="color: inherit; text-decoration: none;">
+					<h3>socketTimeoutMS and large connection pools</h3>
+				</a>
+				<p>Having a large connection pool does not always reduce reconnection
+					requests. Consider the following example: an application has
+					a connection pool size of 5 sockets and has <code>socketTimeoutMS</code> set
+					to 5000 milliseconds. Operations occur, on average, every 3000
+					milliseconds, and reconnection requests are frequent.
+					Each socket times out after 5000 milliseconds, which means that all
+					sockets must do something during that 5000 millisecond period to
+					avoid closing. One message every 3000 milliseconds is not enough to
+					keep the sockets active, so several of the sockets will time out
+				after 5000 milliseconds.</p>
+				<p>Reducing the pool size to 1 will fix the problem.</p>
+				<a href="#the-special-meaning-of-0" id="the-special-meaning-of-0" style="color: inherit; text-decoration: none;">
+					<h3>The special meaning of 0</h3>
+				</a>
+				<p>Setting <code>connectTimeoutMS</code> and <code>socketTimeoutMS</code> to the value 0 has
+					a special meaning. It causes the application to use the operating
+				system&#39;s default socket timeout value.</p>
+				<a href="#maxtimems-is-the-option-you-are-looking-for" id="maxtimems-is-the-option-you-are-looking-for" style="color: inherit; text-decoration: none;">
+					<h3>maxTimeMS is the option you are looking for</h3>
+				</a>
+				<p>Many developers set a low <code>socketTimeoutMS</code> value, intending
+					to prevent long-running server operations from slowing down
+					the application. <code>maxTimeMS</code> is usually a better choice; it allows
+					MongoDB itself to cancel operations which run for more than <code>maxTimeMS</code>
+				milliseconds.</p>
+				<p>The following example demonstrates how to use <code>MaxTimeMS</code> with a <code>find</code>
+				operation.</p>
+				<pre><code class="language-js"><span class="hljs-comment">// Execute a find command</span>
+col.find({<span class="hljs-string">"$where"</span>: <span class="hljs-string">"sleep(100) || true"</span>})
+  .maxTimeMS(<span class="hljs-number">50</span>)
+  .count(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, count</span>) </span>{
+});</code></pre>
+				<a href="#what-does-the-keepalive-setting-do" id="what-does-the-keepalive-setting-do" style="color: inherit; text-decoration: none;">
+					<h3>What does the keepAlive setting do?</h3>
+				</a>
+				<p><code>keepAlive</code> is a socket setting available from Node.js that in theory
+					will keep a socket alive by sending periodic probes to MongoDB.
+					However, this only works if the operating system supports
+					<code>SO_KEEPALIVE</code>, and still might not work if a firewalls
+				ignores or drops the <code>keepAlive</code> packets.</p>
+				<a href="#on-misconfigured-firewalls" id="on-misconfigured-firewalls" style="color: inherit; text-decoration: none;">
+					<h3>On misconfigured firewalls</h3>
+				</a>
+				<p>Internal firewalls which exist between application servers and MongoDB
+					are often misconfigured, and are overly aggressive in their culling of
+					socket connections. If you experience unexpected network behavior, here
+				are some things to check:</p>
+				<ol>
+					<li>The firewall should send a FIN packet when closing a socket,
+					allowing the driver to detect that the socket is closed.</li>
+					<li>The firewall should allow keepAlive probes.</li>
+				</ol>
+				<a href="#i39m-getting-econnreset-when-calling-clientconnect" id="i39m-getting-econnreset-when-calling-clientconnect" style="color: inherit; text-decoration: none;">
+					<h1>I&#39;m getting ECONNRESET when calling client.connect</h1>
+				</a>
+				<p>This can occur if the connection pool is too large.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> MongoClient(<span class="hljs-string">'mongodb://localhost:27017/test?maxPoolSize=5000'</span>);
+client.connect(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-comment">// connection</span>
+});</code></pre>
+				<p>If this operation causes an <code>ECONNRESET</code> error, you may have run into
+				the file descriptor limit for your Node.js process.</p>
+				<p>In most operating systems, each socket connection is associated with a
+					file descriptor. Many operating systems have a limit on how many such
+				file descriptors can be used by a single process.</p>
+				<p>The way to fix the descriptor limit issue is to increase the number of
+					file descriptors for the Node.js process. On Mac OS and Linux you do
+				this with the <code>ulimit</code> shell command.</p>
+				<pre><code>ulimit -n <span class="hljs-number">6000</span></code></pre><p>This sets the maximum number of file descriptors for the process to
+				6000, allowing Node.js to connect with a pool size of 5000 sockets.</p>
+				<a href="#how-can-i-prevent-a-slow-operation-from-delaying-other-operations" id="how-can-i-prevent-a-slow-operation-from-delaying-other-operations" style="color: inherit; text-decoration: none;">
+					<h1>How can I prevent a slow operation from delaying other operations?</h1>
+				</a>
+				<p>{{% note %}}
+					The driver is only affected by the slow train operations if the number of slow operations is larger than the max pool size.
+				{{% /note %}}</p>
+				<p>While Node.js is asynchronous, MongoDB is not. Currently, MongoDB uses a single execution thread per socket. This means that it will only execute a single operation on a socket at any given point in time. Any other operations sent to that socket will have to wait until the current operation is finished. If you have a slow-running operation which holds up other operations,
+					the best solution is to create a separate connection pool for the slow operation, isolating it from other, faster
+				operations.</p>
+				<a href="#ensure-your-connection-string-is-valid-for-replica-set" id="ensure-your-connection-string-is-valid-for-replica-set" style="color: inherit; text-decoration: none;">
+					<h1>Ensure your connection string is valid for Replica Set</h1>
+				</a>
+				<p>The connection string passed to the driver <strong>MUST</strong> use the fully qualified host names for the servers as set in the replicaset config. Given the following configuration settings for your replicaset.</p>
+				<pre><code class="language-js">{
+    <span class="hljs-string">"_id"</span> : <span class="hljs-string">"testSet"</span>,
+    <span class="hljs-string">"version"</span> : <span class="hljs-number">1</span>,
+    <span class="hljs-string">"protocolVersion"</span> : <span class="hljs-number">1</span>,
+    <span class="hljs-string">"members"</span> : [
+        {
+            <span class="hljs-string">"_id"</span> : <span class="hljs-number">1</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"server1:31000"</span>,
+        },
+        {
+            <span class="hljs-string">"_id"</span> : <span class="hljs-number">2</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"server2:31001"</span>,
+        },
+        {
+            <span class="hljs-string">"_id"</span> : <span class="hljs-number">3</span>,
+            <span class="hljs-string">"host"</span> : <span class="hljs-string">"server3:31002"</span>,
+        }
+    ]
+}</code></pre>
+				<p>You must ensure <code>server1</code>, <code>server2</code> and <code>server3</code> are resolvable from the driver for the Replicaset discovery and failover to work correctly.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Documentation</span>
+					</li>
+					<li class="current pp-nav pp-page">
+						<a href="index.html">FAQ</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Tutorials</span>
+					</li>
+					<li class=" pp-nav pp-page pp-parent">
+						<a href="../Tutorials/quick-start.html">Quick <wbr>Start</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="../../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../../modules/_kerberos_.html">&quot;kerberos&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/pages.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,1043 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>crud | mongodb</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../../assets/css/main.css">
+	<link rel="stylesheet" href="../../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../../assets/js/search.js" data-base="../../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../../index.html" class="title">mongodb</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../quick-start.html">Tutorials</a>
+				</li>
+				<li>
+					<a href="../quick-start.html">Quick Start</a>
+				</li>
+				<li>
+					<a href="crud.html">crud</a>
+				</li>
+			</ul>
+			<h1>crud</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#crud-operations" id="crud-operations" style="color: inherit; text-decoration: none;">
+					<h1>CRUD Operations</h1>
+				</a>
+				<p>For a walkthrough of the main CRUD operations please refer to the
+				[Quick Start guide]({{&lt; ref &quot;quick-start/quick-start.md&quot; &gt;}}).</p>
+				<p>Driver CRUD operations are defined as the operations performed to create, read, update, and delete documents.
+					This tutorial covers both the basic CRUD methods and the specialized <code>findAndModify</code> based methods
+				as well as the new Bulk API methods for efficient bulk write operations.</p>
+				<div class="pull-right">
+					<input type="checkbox" checked="" class="distroPicker" data-toggle="toggle" data-on="ES2015" data-off="ES2017" data-offstyle="success">
+				</div>
+				<a href="#write-methods" id="write-methods" style="color: inherit; text-decoration: none;">
+					<h2>Write Methods</h2>
+				</a>
+				<p>Write methods are divided into those which insert documents into a collection, those which update
+				documents in a collection, and those which remove documents from a collection.</p>
+				<a href="#insert-documents" id="insert-documents" style="color: inherit; text-decoration: none;">
+					<h3>Insert Documents</h3>
+				</a>
+				<p>The <code>insertOne</code> and <code>insertMany</code> methods exist on the <code>Collection</code> class and are used to insert documents into MongoDB.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  // Insert a single document
+  db.collection(&#39;inserts&#39;).insertOne({a:1}, function(err, r) {
+    assert.equal(null, err);
+    assert.equal(1, r.insertedCount);</p>
+<pre><code><span class="hljs-comment">// Insert multiple documents</span>
+<span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.collection</span>(<span class="hljs-string">'inserts'</span>)<span class="hljs-selector-class">.insertMany</span>([{<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}, {<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}], <span class="hljs-selector-tag">function</span>(err, r) {
+  <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(null, err);
+  <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">2</span>, r.insertedCount);
+
+  <span class="hljs-selector-tag">client</span><span class="hljs-selector-class">.close</span>();
+});</code></pre><p>  });
+					});</p>
+				<p></code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Insert a single document</span>
+let r = <span class="hljs-keyword">await</span> db.collection(<span class="hljs-string">'inserts'</span>).insertOne(<span class="hljs-comment">{a:1}</span>);
+assert.equal(<span class="hljs-number">1</span>, r.insertedCount);
+
+<span class="hljs-comment">// Insert multiple documents</span>
+<span class="hljs-keyword">var</span> r = <span class="hljs-keyword">await</span> db.collection(<span class="hljs-string">'inserts'</span>).insertMany([<span class="hljs-comment">{a:2}</span>, <span class="hljs-comment">{a:3}</span>]);
+assert.equal(<span class="hljs-number">2</span>, r.insertedCount);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The first <code>insert</code> inserts a single document into the <em>inserts</em> collection. Notice that there&#39;s no need to
+					explicitly create a new <em>inserts</em> collection, as the server will create it implicitly when the first document
+					is inserted. The method <code>db.createIndex</code> is only necessary when creating non-standard collections,
+					such as <a href="https://docs.mongodb.org/manual/core/capped-collections/">capped collections</a> or where parameters other
+				than the defaults are necessary.</p>
+				<p>The <code>insertOne</code> and <code>insertMany</code> methods also accept a second argument which can be an options object. This object can have the following fields:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>serializeFunctions</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">serialize functions on an object to mongodb, by default the driver does not serialize any functions on the passed in documents.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>forceServerObjectId</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">Force server to assign _id values instead of driver.</td>
+						</tr>
+				</tbody></table>
+				<p>The following example shows how to serialize a passed-in function when writing to a
+				<a href="https://docs.mongodb.org/manual/core/replica-set-members/">replica set</a>.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  // Insert a single document
+  db.collection(&#39;inserts&#39;).insertOne({
+        a:1
+      , b: function() { return &#39;hello&#39;; }
+    }, {
+        w: &#39;majority&#39;
+      , wtimeout: 10000
+      , serializeFunctions: true
+    }, function(err, r) {
+    assert.equal(null, err);
+    assert.equal(1, r.insertedCount);
+    client.close();
+  });
+});
+</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Insert a single document</span>
+const r = await db.collection(<span class="hljs-string">'inserts'</span>).insertOne({
+<span class="hljs-symbol">      a:</span><span class="hljs-number">1</span>
+    , <span class="hljs-string">b:</span> function() { <span class="hljs-keyword">return</span> <span class="hljs-string">'hello'</span>; }
+  }, {
+<span class="hljs-symbol">      w:</span> <span class="hljs-string">'majority'</span>
+    , <span class="hljs-string">wtimeout:</span> <span class="hljs-number">10000</span>
+    , <span class="hljs-string">serializeFunctions:</span> <span class="hljs-literal">true</span>
+    , <span class="hljs-string">forceServerObjectId:</span> <span class="hljs-literal">true</span>
+  });
+
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.insertedCount);
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p><a name='specify-data-type'></a></p>
+				<a href="#specify-a-data-type" id="specify-a-data-type" style="color: inherit; text-decoration: none;">
+					<h4>Specify a Data Type</h4>
+				</a>
+				<p>The following example specifies a numerical data type
+				when inserting documents with the <code>insertMany</code> method.</p>
+				<p>{{% note %}}
+					The Decimal128 data type requires MongoDB server version 3.4 or higher.
+				{{% /note %}}</p>
+				<section class="javascript5"><pre><code class="hljs">
+const Long = require('mongodb').Long;
+const Decimal = require('mongodb').Decimal128;
+
+<p>{{% myproject-connect %}}</p>
+<p>  const longValue = Long(1787);
+  const decimalValue = Decimal.fromString(&quot;27.8892836&quot;);</p>
+<p>  // Insert multiple documents
+  db.collection(&#39;numbers&#39;).insertMany([ { a : longValue }, { b : decimalValue } ], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(2, r.insertedCount);
+    client.close();
+  });
+});</p>
+<p></code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+const Long = require('mongodb').Long;
+const Decimal = require('mongodb').Decimal128;
+
+<p>{{% js6-connect %}}</p>
+<pre><code>const longValue = <span class="hljs-constructor">Long(1787)</span>;
+const decimalValue = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Decimal</span>.</span></span>from<span class="hljs-constructor">String(<span class="hljs-string">"27.8892836"</span>)</span>;
+
+<span class="hljs-comment">// Insert multiple documents</span>
+const r = await db.collection('numbers').insert<span class="hljs-constructor">Many([ { <span class="hljs-params">a</span> : <span class="hljs-params">longValue</span> }, { <span class="hljs-params">b</span> : <span class="hljs-params">decimalValue</span> } ])</span>;
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.insertedCount);
+
+<span class="hljs-comment">// Close connection</span>
+client.close<span class="hljs-literal">()</span>;</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The above operation inserts the following documents into the
+				<code>numbers</code> collection:</p>
+				<pre><code class="language-js">{ <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"57d6f63a98724c65a5d7bd7a"</span>), <span class="hljs-string">"a"</span> : NumberLong(<span class="hljs-number">1787</span>) }
+{ <span class="hljs-string">"_id"</span> : ObjectId(<span class="hljs-string">"57d6f63a98724c65a5d7bd7b"</span>), <span class="hljs-string">"b"</span> : NumberDecimal(<span class="hljs-string">"27.8892836"</span>) }</code></pre>
+				<a href="#updating-documents" id="updating-documents" style="color: inherit; text-decoration: none;">
+					<h3>Updating Documents</h3>
+				</a>
+				<p>The <code>updateOne</code> and <code>updateMany</code> methods exist on the <code>Collection</code> class and are used to update and upsert documents.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;updates&#39;);
+  // Insert multiple documents
+  col.insertMany([{a:1}, {a:2}, {a:2}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.insertedCount);</p>
+<pre><code><span class="hljs-comment">// Update a single document</span>
+<span class="hljs-selector-tag">col</span><span class="hljs-selector-class">.updateOne</span>({<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>}, {$<span class="hljs-attribute">set</span>: {<span class="hljs-attribute">b</span>: <span class="hljs-number">1</span>}}, function(err, r) {
+  <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(null, err);
+  <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">1</span>, r.matchedCount);
+  <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">1</span>, r.modifiedCount);
+
+  <span class="hljs-comment">// Update multiple documents</span>
+  <span class="hljs-selector-tag">col</span><span class="hljs-selector-class">.updateMany</span>({<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}, {$<span class="hljs-attribute">set</span>: {<span class="hljs-attribute">b</span>: <span class="hljs-number">1</span>}}, function(err, r) {
+    <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(null, err);
+    <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">2</span>, r.matchedCount);
+    <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">2</span>, r.modifiedCount);
+
+    <span class="hljs-comment">// Upsert a single document</span>
+    <span class="hljs-selector-tag">col</span><span class="hljs-selector-class">.updateOne</span>({<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}, {$<span class="hljs-attribute">set</span>: {<span class="hljs-attribute">b</span>: <span class="hljs-number">1</span>}}, {
+      <span class="hljs-attribute">upsert</span>: true
+    }, <span class="hljs-selector-tag">function</span>(err, r) {
+      <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(null, err);
+      <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">0</span>, r.matchedCount);
+      <span class="hljs-selector-tag">assert</span><span class="hljs-selector-class">.equal</span>(<span class="hljs-number">1</span>, r.upsertedCount);
+      <span class="hljs-selector-tag">client</span><span class="hljs-selector-class">.close</span>();
+    });
+  });
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the updates collection</span>
+const col = db.collection(<span class="hljs-string">'updates'</span>);
+<span class="hljs-comment">// Insert multiple documents</span>
+let r = await col.insertMany([{<span class="hljs-string">a:</span><span class="hljs-number">1</span>}, {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}, {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}]);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">3</span>, r.insertedCount);
+
+<span class="hljs-comment">// Update a single document</span>
+r = await col.updateOne({<span class="hljs-string">a:</span><span class="hljs-number">1</span>}, {<span class="hljs-string">$set:</span> {<span class="hljs-string">b:</span> <span class="hljs-number">1</span>}});
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.matchedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.modifiedCount);
+
+<span class="hljs-comment">// Update multiple documents</span>
+r = await col.updateMany({<span class="hljs-string">a:</span><span class="hljs-number">2</span>}, {<span class="hljs-string">$set:</span> {<span class="hljs-string">b:</span> <span class="hljs-number">1</span>}});
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.matchedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.modifiedCount);
+
+<span class="hljs-comment">// Upsert a single document</span>
+r = await col.updateOne({<span class="hljs-string">a:</span><span class="hljs-number">3</span>}, {<span class="hljs-string">$set:</span> {<span class="hljs-string">b:</span> <span class="hljs-number">1</span>}}, {
+<span class="hljs-symbol">  upsert:</span> <span class="hljs-literal">true</span>
+});
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">0</span>, r.matchedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.upsertedCount);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The <code>update</code> method also accepts a third argument which can be an options object. This object can have the following fields:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>multi</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">Update one/all documents with operation.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>upsert</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">Update operation is an upsert.</td>
+						</tr>
+				</tbody></table>
+				<p>Just as for <code>insert</code>, the <code>update</code> method allows you to specify a per operation write concern using the <code>w</code>, <code>wtimeout</code> and <code>fsync</code> parameters.</p>
+				<a href="#removing-documents" id="removing-documents" style="color: inherit; text-decoration: none;">
+					<h3>Removing Documents</h3>
+				</a>
+				<p>The <code>deleteOne</code> and <code>deleteMany</code> methods exist on the <code>Collection</code> class and are used to remove documents from MongoDB.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;removes&#39;);
+  // Insert multiple documents
+  col.insertMany([{a:1}, {a:2}, {a:2}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.insertedCount);</p>
+<pre><code><span class="hljs-comment">// Remove a single document</span>
+col.delete<span class="hljs-constructor">One({<span class="hljs-params">a</span>:1}, <span class="hljs-params">function</span>(<span class="hljs-params">err</span>, <span class="hljs-params">r</span>)</span> {
+  <span class="hljs-keyword">assert</span>.equal(null, err);
+  <span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.deletedCount);
+
+  <span class="hljs-comment">// Update multiple documents</span>
+  col.delete<span class="hljs-constructor">Many({<span class="hljs-params">a</span>:2}, <span class="hljs-params">function</span>(<span class="hljs-params">err</span>, <span class="hljs-params">r</span>)</span> {
+    <span class="hljs-keyword">assert</span>.equal(null, err);
+    <span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.deletedCount);
+    client.close<span class="hljs-literal">()</span>;
+  });
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the removes collection</span>
+const col = db.collection('removes');
+<span class="hljs-comment">// Insert multiple documents</span>
+<span class="hljs-keyword">let</span> r = await col.insert<span class="hljs-constructor">Many([{<span class="hljs-params">a</span>:1}, {<span class="hljs-params">a</span>:2}, {<span class="hljs-params">a</span>:2}])</span>;
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">3</span>, r.insertedCount);
+
+<span class="hljs-comment">// Remove a single document</span>
+r = await col.delete<span class="hljs-constructor">One({<span class="hljs-params">a</span>:1})</span>;
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.deletedCount);
+
+<span class="hljs-comment">// Update multiple documents</span>
+r = await col.delete<span class="hljs-constructor">Many({<span class="hljs-params">a</span>:2})</span>;
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.deletedCount);
+
+<span class="hljs-comment">// Close connection</span>
+client.close<span class="hljs-literal">()</span>;</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The <code>deleteOne</code> and <code>deleteMany</code> methods also accept a second argument which can be an options object. This object can have the following fields:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>single</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">Removes the first document found.</td>
+						</tr>
+				</tbody></table>
+				<p>Just as for <code>updateOne/updateMany</code> and <code>insertOne/insertMany</code>, the <code>deleteOne/deleteMany</code> method allows you to specify a per operation write concern using the <code>w</code>, <code>wtimeout</code> and <code>fsync</code> parameters.</p>
+				<a href="#findoneandupdate-findoneanddelete-and-findoneandreplace" id="findoneandupdate-findoneanddelete-and-findoneandreplace" style="color: inherit; text-decoration: none;">
+					<h3>findOneAndUpdate, findOneAndDelete, and findOneAndReplace</h3>
+				</a>
+				<p>The three methods <code>findOneAndUpdate</code>, <code>findOneAndDelete</code> and <code>findOneAndReplace</code> are special commands which
+					allow the user to update or upsert a document and have the modified or existing document returned. When using these
+					methods, the operation takes a write lock for the duration of the operation in order to ensure the modification is
+				<a href="https://docs.mongodb.org/manual/core/write-operations-atomicity/">atomic</a>.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;findAndModify&#39;);
+  // Insert multiple documents
+  col.insert([{a:1}, {a:2}, {a:2}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.result.n);</p>
+<pre><code>// Modify <span class="hljs-keyword">and</span> <span class="hljs-keyword">return</span> the modified document
+col.findOneAndUpdate({a:<span class="hljs-number">1</span>}, {$set: {b: <span class="hljs-number">1</span>}}, {
+    returnOriginal: <span class="hljs-literal">false</span>
+  , <span class="hljs-built_in">sort</span>: <span class="hljs-string">[[a,1]]</span>
+  , upsert: <span class="hljs-literal">true</span>
+}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, r)</span></span> {
+  <span class="hljs-built_in">assert</span>.equal(null, err);
+  <span class="hljs-built_in">assert</span>.equal(<span class="hljs-number">1</span>, r.value.b);
+
+  // Remove <span class="hljs-keyword">and</span> <span class="hljs-keyword">return</span> a document
+  col.findOneAndDelete({a:<span class="hljs-number">2</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, r)</span></span> {
+    <span class="hljs-built_in">assert</span>.equal(null, err);
+    <span class="hljs-built_in">assert</span>.ok(r.value.b == null);
+    client.<span class="hljs-built_in">close</span>();
+  });
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the findAndModify collection</span>
+const col = db.collection(<span class="hljs-string">'findAndModify'</span>);
+<span class="hljs-comment">// Insert multiple documents</span>
+let r = await col.insert([{<span class="hljs-string">a:</span><span class="hljs-number">1</span>}, {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}, {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}]);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">3</span>, r.result.n);
+
+<span class="hljs-comment">// Modify and return the modified document</span>
+r = await col.findOneAndUpdate({<span class="hljs-string">a:</span><span class="hljs-number">1</span>}, {<span class="hljs-string">$set:</span> {<span class="hljs-string">b:</span> <span class="hljs-number">1</span>}}, {
+<span class="hljs-symbol">    returnOriginal:</span> <span class="hljs-literal">false</span>
+  , <span class="hljs-string">sort:</span> [[a,<span class="hljs-number">1</span>]]
+  , <span class="hljs-string">upsert:</span> <span class="hljs-literal">true</span>
+});
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.value.b);
+
+<span class="hljs-comment">// Remove and return a document</span>
+r = await col.findOneAndDelete({<span class="hljs-string">a:</span><span class="hljs-number">2</span>});
+<span class="hljs-keyword">assert</span>.ok(r.value.b == <span class="hljs-literal">null</span>);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The <code>findOneAndUpdate</code> method also accepts a third argument which can be an options object. This object can have the following fields:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>upsert</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">Perform an upsert operation.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>sort</code></td>
+							<td align="left">(Object, default:null)</td>
+							<td align="left">Sort for find operation.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>projection</code></td>
+							<td align="left">(Object, default:null)</td>
+							<td align="left">Projection for returned result</td>
+						</tr>
+						<tr>
+							<td align="left"><code>returnOriginal</code></td>
+							<td align="left">(Boolean, default:true)</td>
+							<td align="left">Set to false if you want to return the modified object rather than the original. Ignored for remove.</td>
+						</tr>
+				</tbody></table>
+				<p>The <code>findOneAndDelete</code> function is designed to help remove a document.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;findAndModify&#39;);
+  // Insert multiple documents
+  col.insert([{a:1}, {a:2}, {a:2}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.result.n);</p>
+<pre><code>// Remove a document from MongoDB <span class="hljs-keyword">and</span> <span class="hljs-keyword">return</span> it
+col.findOneAndDelete({a:<span class="hljs-number">1</span>}, {
+    <span class="hljs-built_in">sort</span>: <span class="hljs-string">[[a,1]]</span>
+  }
+  , <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, r)</span></span> {
+    <span class="hljs-built_in">assert</span>.equal(null, err);
+    <span class="hljs-built_in">assert</span>.ok(r.value.b == null);
+    client.<span class="hljs-built_in">close</span>();
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the findAndModify collection</span>
+<span class="hljs-keyword">const</span> col = db.collection(<span class="hljs-string">'findAndModify'</span>);
+<span class="hljs-comment">// Insert multiple documents</span>
+let r = <span class="hljs-keyword">await</span> col.insert([<span class="hljs-comment">{a:1}</span>, <span class="hljs-comment">{a:2}</span>, <span class="hljs-comment">{a:2}</span>]);
+assert.equal(<span class="hljs-number">3</span>, r.result.n);
+
+<span class="hljs-comment">// Remove a document from MongoDB and return it</span>
+r = <span class="hljs-keyword">await</span> col.findOneAndDelete(<span class="hljs-comment">{a:1}</span>, <span class="hljs-comment">{
+    sort: [[a,1]]
+  }</span>);
+assert.ok(r.value.b == null);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>Like <code>findOneAndUpdate</code>, it allows an object of options to be passed in which can have the following fields:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>sort</code></td>
+							<td align="left">(Object, default:null)</td>
+							<td align="left">Sort for find operation.</td>
+						</tr>
+				</tbody></table>
+				<a href="#bulkwrite" id="bulkwrite" style="color: inherit; text-decoration: none;">
+					<h3>BulkWrite</h3>
+				</a>
+				<p>The <code>bulkWrite</code> function allows a simple set of bulk operations to run in a non-fluent way, in comparison to the bulk API discussed next.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  // Get the collection
+  const col = db.collection(&#39;bulk_write&#39;);
+  col.bulkWrite([
+      { insertOne: { document: { a: 1 } } }
+    , { updateOne: { filter: {a:2}, update: {$set: {a:2}}, upsert:true } }
+    , { updateMany: { filter: {a:2}, update: {$set: {a:2}}, upsert:true } }
+    , { deleteOne: { filter: {c:1} } }
+    , { deleteMany: { filter: {c:1} } }
+    , { replaceOne: { filter: {c:3}, replacement: {c:4}, upsert:true}}]
+  , {ordered:true, w:1}, function(err, r) {
+    assert.equal(null, err);
+    assert.equal(1, r.insertedCount);
+    assert.equal(1, Object.keys(r.insertedIds).length);
+    assert.equal(1, r.matchedCount);
+    assert.equal(0, r.modifiedCount);
+    assert.equal(0, r.deletedCount);
+    assert.equal(2, r.upsertedCount);
+    assert.equal(2, Object.keys(r.upsertedIds).length);</p>
+<pre><code><span class="hljs-comment">// Ordered bulk operation</span>
+client.<span class="hljs-built_in">close</span>();</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the collection</span>
+const col = db.collection(<span class="hljs-string">'bulk_write'</span>);
+const r = await col.bulkWrite([
+    { <span class="hljs-string">insertOne:</span> { <span class="hljs-string">document:</span> { <span class="hljs-string">a:</span> <span class="hljs-number">1</span> } } }
+  , { <span class="hljs-string">updateOne:</span> { <span class="hljs-string">filter:</span> {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}, <span class="hljs-string">update:</span> {<span class="hljs-string">$set:</span> {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}}, <span class="hljs-string">upsert:</span><span class="hljs-literal">true</span> } }
+  , { <span class="hljs-string">updateMany:</span> { <span class="hljs-string">filter:</span> {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}, <span class="hljs-string">update:</span> {<span class="hljs-string">$set:</span> {<span class="hljs-string">a:</span><span class="hljs-number">2</span>}}, <span class="hljs-string">upsert:</span><span class="hljs-literal">true</span> } }
+  , { <span class="hljs-string">deleteOne:</span> { <span class="hljs-string">filter:</span> {<span class="hljs-string">c:</span><span class="hljs-number">1</span>} } }
+  , { <span class="hljs-string">deleteMany:</span> { <span class="hljs-string">filter:</span> {<span class="hljs-string">c:</span><span class="hljs-number">1</span>} } }
+  , { <span class="hljs-string">replaceOne:</span> { <span class="hljs-string">filter:</span> {<span class="hljs-string">c:</span><span class="hljs-number">3</span>}, <span class="hljs-string">replacement:</span> {<span class="hljs-string">c:</span><span class="hljs-number">4</span>}, <span class="hljs-string">upsert:</span><span class="hljs-literal">true</span>}}]
+, {<span class="hljs-string">ordered:</span><span class="hljs-literal">true</span>, <span class="hljs-string">w:</span><span class="hljs-number">1</span>});
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.insertedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, Object.keys(r.insertedIds).length);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">1</span>, r.matchedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">0</span>, r.modifiedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">0</span>, r.deletedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, r.upsertedCount);
+<span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, Object.keys(r.upsertedIds).length);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The <code>bulkWrite</code> function takes an array of operations which can be objects of either <code>insertOne</code>, <code>updateOne</code>, <code>updateMany</code>, <code>deleteOne</code>, <code>deleteMany</code>, or <code>replaceOne</code>. It also takes a second parameter which takes the following options:</p>
+				<table>
+					<thead>
+						<tr>
+							<th align="left">Parameter</th>
+							<th align="left">Type</th>
+							<th align="left">Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td align="left"><code>ordered</code></td>
+							<td align="left">(Boolean, default:true)</td>
+							<td align="left">Execute in order or out of order.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>w</code></td>
+							<td align="left">{Number/String, &gt; -1 || &#39;majority&#39;}</td>
+							<td align="left">the write concern for the operation where &lt; 1 returns an acknowledgment of the write with not results <code>{ok:1}</code> and w &gt;= 1 or w = &#39;majority&#39; acknowledges the write with full write results.</td>
+						</tr>
+						<tr>
+							<td align="left"><code>wtimeout</code></td>
+							<td align="left">{Number, 0}</td>
+							<td align="left">set the timeout for waiting for write concern to finish (combines with w option).</td>
+						</tr>
+						<tr>
+							<td align="left"><code>j</code></td>
+							<td align="left">(Boolean, default:false)</td>
+							<td align="left">write waits for journal sync.</td>
+						</tr>
+				</tbody></table>
+				<a href="#bulk-write-operations" id="bulk-write-operations" style="color: inherit; text-decoration: none;">
+					<h2>Bulk Write Operations</h2>
+				</a>
+				<p>Bulk write operations make it easy to write groups of operations together to MongoDB. There are some caveats and to get the best performance you need to be running against MongoDB version 2.6 or higher, which supports the new write commands. Bulk operations are split into <em>ordered</em> and <em>unordered</em> bulk operations. An <em>ordered</em> bulk operation guarantees the order of execution of writes while the <em>unordered</em> bulk operation makes no assumptions about the order of execution. In the Node.js driver the <em>unordered</em> bulk operations will group operations according to type and write them in parallel.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;bulkops&#39;);
+  // Create ordered bulk, for unordered initializeUnorderedBulkOp()
+  var bulk = col.initializeOrderedBulkOp();
+  // Insert 10 documents
+  for(var i = 0; i &lt; 10; i++) {
+    bulk.insert({a: i});
+  }</p>
+<p>  // Next perform some upserts
+  for(var i = 0; i &lt; 10; i++) {
+    bulk.find({b:i}).upsert().updateOne({b:1});
+  }</p>
+<p>  // Finally perform a remove operation
+  bulk.find({b:1}).deleteOne();</p>
+<p>  // Execute the bulk with a journal write concern
+  bulk.execute(function(err, result) {
+    assert.equal(null, err);
+    client.close();
+  });
+});
+</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code>// <span class="hljs-keyword">Get</span> the collection
+const col = db.collection(<span class="hljs-string">'bulkops'</span>);
+// <span class="hljs-keyword">Create</span> ordered bulk, <span class="hljs-keyword">for</span> unordered initializeUnorderedBulkOp()
+const bulk = col.initializeOrderedBulkOp();
+// <span class="hljs-keyword">Insert</span> <span class="hljs-number">10</span> documents
+<span class="hljs-keyword">for</span>(let i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  bulk.<span class="hljs-keyword">insert</span>({a: i});
+}
+
+// Next <span class="hljs-keyword">perform</span> <span class="hljs-keyword">some</span> upserts
+<span class="hljs-keyword">for</span>(let i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+  bulk.find({b:i}).upsert().updateOne({b:<span class="hljs-number">1</span>});
+}
+
+// Finally <span class="hljs-keyword">perform</span> a remove operation
+bulk.find({b:<span class="hljs-number">1</span>}).deleteOne();
+
+// <span class="hljs-keyword">Execute</span> the bulk <span class="hljs-keyword">with</span> a journal <span class="hljs-keyword">write</span> concern
+const result = await bulk.<span class="hljs-keyword">execute</span>();
+
+// <span class="hljs-keyword">Close</span> <span class="hljs-keyword">connection</span>
+client.<span class="hljs-keyword">close</span>();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The Bulk API handles all the splitting of operations into multiple writes and also emulates 2.6 and higher write commands for 2.4 and earlier servers.</p>
+				<p>There are some important things to keep in mind when using the bulk API and especially the <em>ordered</em> bulk API mode. The write commands are single operation type. That means they can only do insert/update and remove. If you f.ex do the following combination of operations:</p>
+				<pre><code><span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Update</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>} <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>, b:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}
+<span class="hljs-selector-tag">Remove</span> {<span class="hljs-attribute">b</span>:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}</code></pre><p>This will result in the driver issuing four write commands to the server:</p>
+				<pre><code><span class="hljs-selector-tag">Insert</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Update</span> <span class="hljs-selector-tag">Command</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>} <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>, b:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Insert</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}
+<span class="hljs-selector-tag">Remove</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">b</span>:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Insert</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}</code></pre><p>If you instead organize your <em>ordered</em> in the following manner:</p>
+				<pre><code><span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}
+<span class="hljs-selector-tag">Insert</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}
+<span class="hljs-selector-tag">Update</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>} <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>, b:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Remove</span> {<span class="hljs-attribute">b</span>:<span class="hljs-number">1</span>}</code></pre><p>The number of write commands issued by the driver will be:</p>
+				<pre><code><span class="hljs-selector-tag">Insert</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attribute">a</span>:<span class="hljs-number">2</span>}, {<span class="hljs-attribute">a</span>:<span class="hljs-number">3</span>}
+<span class="hljs-selector-tag">Update</span> <span class="hljs-selector-tag">Command</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>} <span class="hljs-selector-tag">to</span> {<span class="hljs-attribute">a</span>:<span class="hljs-number">1</span>, b:<span class="hljs-number">1</span>}
+<span class="hljs-selector-tag">Remove</span> <span class="hljs-selector-tag">Command</span> <span class="hljs-selector-tag">with</span> {<span class="hljs-attribute">b</span>:<span class="hljs-number">1</span>}</code></pre><p>Attention to the order of operations results in more efficient and faster bulk write operation.</p>
+				<p>For <em>unordered</em> bulk operations this is not important, as the driver sorts operations by type and executes them in parallel.</p>
+				<a href="#read-methods" id="read-methods" style="color: inherit; text-decoration: none;">
+					<h2>Read Methods</h2>
+				</a>
+				<p>The main method for querying the database is the <code>find</code> method.</p>
+				<p><code>find</code> returns a cursor which allows the user to operate on the data. The <em>cursor</em> also implements the Node.js 0.10.x or higher stream interface, allowing the user to pipe the results to other streams.</p>
+				<p>The following example materializes all the documents from a query using the <code>toArray</code> method, but limits the number of returned results to two documents.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;find&#39;);
+  // Insert multiple documents
+  col.insertMany([{a:1}, {a:1}, {a:1}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.insertedCount);</p>
+<pre><code><span class="hljs-comment">// Get first two documents that match the query</span>
+col.find({a:<span class="hljs-number">1</span>}).limit(<span class="hljs-number">2</span>).<span class="hljs-keyword">to</span><span class="hljs-constructor">Array(<span class="hljs-params">function</span>(<span class="hljs-params">err</span>, <span class="hljs-params">docs</span>)</span> {
+  <span class="hljs-keyword">assert</span>.equal(null, err);
+  <span class="hljs-keyword">assert</span>.equal(<span class="hljs-number">2</span>, docs.length);
+  client.close<span class="hljs-literal">()</span>;
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden"><pre><code class="hljs">
+{{% js6-connect %}}
+
+<pre><code><span class="hljs-comment">// Get the collection</span>
+<span class="hljs-keyword">const</span> col = db.collection(<span class="hljs-string">'find'</span>);
+<span class="hljs-comment">// Insert multiple documents</span>
+<span class="hljs-keyword">const</span> r = await col.insertMany([{a:<span class="hljs-number">1</span>}, {a:<span class="hljs-number">1</span>}, {a:<span class="hljs-number">1</span>}]);
+assert.equal(<span class="hljs-number">3</span>, r.insertedCount);
+
+<span class="hljs-comment">// Get first two documents that match the query</span>
+<span class="hljs-keyword">const</span> docs = await col.find({a:<span class="hljs-number">1</span>}).limit(<span class="hljs-number">2</span>).toArray();
+assert.equal(<span class="hljs-number">2</span>, docs.length);
+
+<span class="hljs-comment">// Close connection</span>
+client.close();</code></pre><p>  } catch(err) {
+						console.log(err.stack);
+						}
+						})();
+				</code></pre></section></p>
+				<p>The cursor returned by the <code>find</code> method has several methods that allow for chaining of options for a query. Once the query is ready to be executed you can retrieve the documents using the <code>next</code>, <code>each</code> and <code>toArray</code> methods. If the query returns many documents it&#39;s preferable to use the <code>next</code> or <code>each</code> methods, as the <code>toArray</code> method will materialize all the documents into memory before calling the callback function, potentially using a lot of memory if the query returns many documents.</p>
+				<pre><code class="language-js">collection.find({}).project({<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>})                             <span class="hljs-comment">// Create a projection of field a</span>
+collection.find({}).skip(<span class="hljs-number">1</span>).limit(<span class="hljs-number">10</span>)                          <span class="hljs-comment">// Skip 1 and limit 10</span>
+collection.find({}).batchSize(<span class="hljs-number">5</span>)                               <span class="hljs-comment">// Set batchSize on cursor to 5</span>
+collection.find({}).filter({<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>})                              <span class="hljs-comment">// Set query on the cursor</span>
+collection.find({}).comment(<span class="hljs-string">'add a comment'</span>)                   <span class="hljs-comment">// Add a comment to the query, allowing to correlate queries</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'tailable'</span>, <span class="hljs-literal">true</span>)            <span class="hljs-comment">// Set cursor as tailable</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'oplogReplay'</span>, <span class="hljs-literal">true</span>)         <span class="hljs-comment">// Set cursor as oplogReplay</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'noCursorTimeout'</span>, <span class="hljs-literal">true</span>)     <span class="hljs-comment">// Set cursor as noCursorTimeout</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'awaitData'</span>, <span class="hljs-literal">true</span>)           <span class="hljs-comment">// Set cursor as awaitData</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'exhaust'</span>, <span class="hljs-literal">true</span>)             <span class="hljs-comment">// Set cursor as exhaust</span>
+collection.find({}).addCursorFlag(<span class="hljs-string">'partial'</span>, <span class="hljs-literal">true</span>)             <span class="hljs-comment">// Set cursor as partial</span>
+collection.find({}).addQueryModifier(<span class="hljs-string">'$orderby'</span>, {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>})        <span class="hljs-comment">// Set $orderby {a:1}</span>
+collection.find({}).max(<span class="hljs-number">10</span>)                                    <span class="hljs-comment">// Set the cursor max</span>
+collection.find({}).maxTimeMS(<span class="hljs-number">1000</span>)                            <span class="hljs-comment">// Set the cursor maxTimeMS</span>
+collection.find({}).min(<span class="hljs-number">100</span>)                                   <span class="hljs-comment">// Set the cursor min</span>
+collection.find({}).returnKey(<span class="hljs-number">10</span>)                              <span class="hljs-comment">// Set the cursor returnKey</span>
+collection.find({}).setReadPreference(ReadPreference.PRIMARY)  <span class="hljs-comment">// Set the cursor readPreference</span>
+collection.find({}).showRecordId(<span class="hljs-literal">true</span>)                         <span class="hljs-comment">// Set the cursor showRecordId</span>
+collection.find({}).sort([[<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>]])                           <span class="hljs-comment">// Sets the sort order of the cursor query</span>
+collection.find({}).hint(<span class="hljs-string">'a_1'</span>)                                <span class="hljs-comment">// Set the cursor hint</span></code></pre>
+				<p>All options are chainable, so you can combine settings in the following way:</p>
+				<pre><code class="language-js">collection.find({}).maxTimeMS(<span class="hljs-number">1000</span>).skip(<span class="hljs-number">1</span>).toArray(..)</code></pre>
+				<p>More information can be found in the <a href="/node-mongodb-native/3.4/api/Cursor.html">Cursor API documentation</a>.</p>
+				<p>The following example uses the <code>next</code> method.</p>
+				<section class="javascript5"><pre><code class="hljs">
+{{% myproject-connect %}}
+
+<p>  const col = db.collection(&#39;find&#39;);
+  // Insert multiple documents
+  col.insertMany([{a:1}, {a:1}, {a:1}], function(err, r) {
+    assert.equal(null, err);
+    assert.equal(3, r.insertedCount);</p>
+<pre><code>// <span class="hljs-keyword">Get</span> first documents <span class="hljs-keyword">from</span> <span class="hljs-keyword">cursor</span>
+col.find({a:<span class="hljs-number">1</span>}).<span class="hljs-keyword">limit</span>(<span class="hljs-number">2</span>).next(<span class="hljs-keyword">function</span>(err, doc) {
+  <span class="hljs-keyword">assert</span>.equal(<span class="hljs-keyword">null</span>, err);
+  <span class="hljs-keyword">assert</span>.ok(doc != <span class="hljs-keyword">null</span>);
+  client.<span class="hljs-keyword">close</span>();
+});</code></pre><p>  });
+						});
+				</code></pre></section></p>
+				<section class="javascript6 hidden">
+					In ECMAScript 6, The new `generator` functions allow for what is arguably a
+					much cleaner and easier way to read iteration code.
+					<pre><code class="hljs">
+{{% js6-connect %}}
+
+    // Get the collection
+    const col = db.collection('find');
+    // Insert multiple documents
+    const r = await col.insertMany([{a:1}, {a:1}, {a:1}]);
+    assert.equal(3, r.insertedCount);
+
+    // Get the cursor
+    const cursor = col.find({a:1}).limit(2);
+
+    // Iterate over the cursor
+    while(await cursor.hasNext()) {
+      const doc = await cursor.next();
+      console.dir(doc);
+    }
+
+    // Close connection
+    client.close();
+  } catch(err) {
+    console.log(err.stack);
+  }
+})();
+</code></pre></section>
+				<p>The <code>next</code> method allows the application to read one document at a time using callbacks.</p>
+				<p>The following example uses the <code>each</code> method.</p>
+				<pre><code class="language-js">{{% myproject-connect %}}
+
+  <span class="hljs-keyword">const</span> col = db.collection(<span class="hljs-string">'find'</span>);
+  <span class="hljs-comment">// Insert multiple documents</span>
+  col.insertMany([{<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>}, {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>}], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, r</span>) </span>{
+    assert.equal(<span class="hljs-literal">null</span>, err);
+    assert.equal(<span class="hljs-number">3</span>, r.insertedCount);
+
+    <span class="hljs-comment">// Get first documents from cursor using each</span>
+    col.find({<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>}).limit(<span class="hljs-number">2</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, doc</span>) </span>{
+      <span class="hljs-keyword">if</span>(doc) {
+        <span class="hljs-comment">// Got a document</span>
+      } <span class="hljs-keyword">else</span> {
+        client.close();
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+    });
+  });
+});</code></pre>
+				<p>The <code>each</code> method calls the supplied callback until there are no more documents available that satisfy the query. Once the available documents are exhausted it will return <code>null</code> for the second parameter in the callback. If you wish to terminate the <code>each</code> early you should return false in your <code>each</code> callback. This will stop the cursor from returning documents.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Documentation</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../../Documentation/index.html">FAQ</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>Tutorials</span>
+					</li>
+					<li class=" pp-nav pp-page pp-parent pp-active">
+						<a href="../quick-start.html">Quick <wbr>Start</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="aggregation.html">aggregation</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="collations.html">collations</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="collections.html">collections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="commands.html">commands</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="create-indexes.html">create-<wbr>indexes</a>
+					</li>
+					<li class="current pp-nav pp-page pp-child">
+						<a href="crud.html">crud</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="geospatial-search.html">geospatial-<wbr>search</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="main.html">main</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="projections.html">projections</a>
+					</li>
+					<li class=" pp-nav pp-page pp-child">
+						<a href="text-search.html">text-<wbr>search</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class="globals  ">
+						<a href="../../../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../../../modules/_kerberos_.html">&quot;kerberos&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../../assets/js/pages.js"></script>
+<script src="../../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
