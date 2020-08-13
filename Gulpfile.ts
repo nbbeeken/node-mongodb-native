@@ -1,12 +1,10 @@
 import * as gulp from 'gulp';
 import { promisify } from 'util';
-import { exec, ChildProcess } from 'child_process';
+import { exec } from 'child_process';
 import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 import { basename } from 'path';
 
-const run = promisify((commandString: string) => exec(commandString, { encoding: 'utf-8' })) as (
-  commandString: string
-) => Promise<ChildProcess>;
+const run = promisify(exec);
 
 gulp.task('doc', async () => {
   function generateTypeDocConfig() {
@@ -74,17 +72,28 @@ gulp.task('doc', async () => {
   }
 });
 
-gulp.task('definitions', async () => {
+gulp.task('api-extractor', async () => {
   try {
-    await run('npm run build:ts');
-    const { stdout, stderr } = await run('api-extractor run --local --verbose');
+    const { stdout, stderr } = await run('npx api-extractor run --local --verbose');
     console.log(stdout);
     console.log(stderr);
-    await run('rimraf lib/*.d.ts lib/**/*.d.ts');
-    await run('prettier types/mongodb.d.ts --write');
+    await run('npx rimraf lib/*.d.ts lib/**/*.d.ts');
+    await run('npx prettier types/mongodb.d.ts --write');
   } catch (err) {
     console.error('encountered an error:');
     console.error((err.stdout as string).trim());
     console.error((err.stderr as string).trim());
   }
 });
+
+gulp.task('compile', async () => {
+  try {
+    await run('npx tsc');
+  } catch (err) {
+    console.error('encountered an error:');
+    console.error((err.stdout as string).trim());
+    console.error((err.stderr as string).trim());
+  }
+});
+
+gulp.task('definitions', gulp.series('compile', 'api-extractor'));
