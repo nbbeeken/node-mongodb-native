@@ -586,10 +586,10 @@ ul.tsd-descriptions > li > :last-child > :last-child > :last-child {
     width: 17px;
     height: 17px;
     margin: 0 3px 2px 0;
-    background-image: url(../images/icons.png); }
+    background-image: url(assets/images/icons.png); }
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .tsd-kind-icon:before {
-        background-image: url(../images/icons@2x.png);
+        background-image: url(assets/images/icons@2x.png);
         background-size: 238px 204px; } }
 
 .tsd-signature.tsd-kind-icon:before {
@@ -2226,13 +2226,13 @@ ul.tsd-type-parameters {
   width: 40px;
   height: 40px;
   margin: 0 -8px 0 0;
-  background-image: url(../images/widgets.png);
+  background-image: url(/assets/images/widgets.png);
   background-repeat: no-repeat;
   text-indent: -1024px;
   vertical-align: bottom; }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .tsd-widget:before, .tsd-select .tsd-select-label:before, .tsd-select .tsd-select-list li:before {
-      background-image: url(../images/widgets@2x.png);
+      background-image: url(assets/images/widgets@2x.png);
       background-size: 320px 40px; } }
 
 .tsd-widget {
