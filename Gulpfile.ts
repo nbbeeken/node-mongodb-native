@@ -3,7 +3,9 @@ import { promisify } from 'util';
 import { exec } from 'child_process';
 import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 import { basename } from 'path';
+import * as ts from 'gulp-typescript';
 
+import tsConfig = require('./tsconfig.json');
 const run = promisify(exec);
 
 gulp.task('doc', async () => {
@@ -86,9 +88,9 @@ gulp.task('api-extractor', async () => {
   }
 });
 
-gulp.task('compile', async () => {
+gulp.task('compile', () => {
   try {
-    await run('npx tsc');
+    return gulp.src('./src/**/*.ts').pipe(ts(tsConfig.compilerOptions)).pipe(gulp.dest('./lib'));
   } catch (err) {
     console.error('encountered an error:');
     console.error((err.stdout as string).trim());
@@ -96,4 +98,4 @@ gulp.task('compile', async () => {
   }
 });
 
-gulp.task('definitions', gulp.series('compile', 'api-extractor'));
+gulp.task('definition', gulp.series('compile', 'api-extractor'));
