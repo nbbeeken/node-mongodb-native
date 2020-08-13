@@ -89,7 +89,7 @@
   "scripts": {
     "build:evergreen": "node .evergreen/generate_evergreen_tasks.js",
     "build:ts": "tsc",
-    "build:dts": "npm run build:ts && api-extractor run --local --verbose && rimraf lib/*.d.ts lib/**/*.d.ts && prettier types/mongodb.d.ts --write",
+    "build:dts": "npm run build:ts && gulp definitions",
     "build:docs": "npm run build:dts && gulp typedoc",
     "check:bench": "node test/benchmarks/driverBench",
     "check:coverage": "nyc npm run check:test",

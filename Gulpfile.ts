@@ -1,16 +1,20 @@
 import * as gulp from 'gulp';
 import { promisify } from 'util';
-import { exec } from 'child_process';
+import { exec, ChildProcess } from 'child_process';
 import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 import { basename } from 'path';
 
-gulp.task('typedoc', async () => {
+const run = promisify((commandString: string) => exec(commandString, { encoding: 'utf-8' })) as (
+  commandString: string
+) => Promise<ChildProcess>;
+
+gulp.task('doc', async () => {
   function generateTypeDocConfig() {
     const tutorials = readdirSync('docs/reference/content/tutorials')
       .filter(filename => filename.endsWith('.md'))
       .map(filename => `docs/reference/content/tutorials/${filename}`);
 
-    const typedocOptions = {
+    const docOptions = {
       entryPoint: 'types/mongodb.d.ts',
       mode: 'file',
       out: 'docs/gen',
@@ -48,24 +52,39 @@ gulp.task('typedoc', async () => {
       }
     };
 
-    return typedocOptions;
+    return docOptions;
   }
 
-  const typedocOptions = generateTypeDocConfig();
+  const docOptions = generateTypeDocConfig();
 
-  writeFileSync('./typedoc.json', JSON.stringify(typedocOptions, undefined, 2), {
+  writeFileSync('./typedoc.json', JSON.stringify(docOptions, undefined, 2), {
     encoding: 'utf8'
   });
 
   try {
-    await promisify(exec)('npx typedoc');
+    await run('npx typedoc');
   } catch (err) {
     console.error('typedoc encountered an error:');
     console.error((err.stdout as string).trim());
     console.error((err.stderr as string).trim());
     console.error('typedoc settings:');
-    console.error(JSON.stringify(typedocOptions, undefined, 2));
+    console.error(JSON.stringify(docOptions, undefined, 2));
   } finally {
     unlinkSync('./typedoc.json');
+  }
+});
+
+gulp.task('definitions', async () => {
+  try {
+    await run('npm run build:ts');
+    const { stdout, stderr } = await run('api-extractor run --local --verbose');
+    console.log(stdout);
+    console.log(stderr);
+    await run('rimraf lib/*.d.ts lib/**/*.d.ts');
+    await run('prettier types/mongodb.d.ts --write');
+  } catch (err) {
+    console.error('encountered an error:');
+    console.error((err.stdout as string).trim());
+    console.error((err.stderr as string).trim());
   }
 });
