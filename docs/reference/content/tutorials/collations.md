@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T12:53:30-04:00"
-title = "Collations"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Collations"
-  weight = 30
-  pre = "<i class='fa'></i>"
-+++
-
 # Overview
 
 Collations provide a set of rules which comply with the conventions
@@ -363,7 +353,7 @@ results by German phonebook order.
 
 function countNames(db, callback) {
   const collection = db.collection( 'names' );
-  const cursor = collection.aggregate([ 
+  const cursor = collection.aggregate([
     { '$group': { '_id': "$first_name", 'nameCount': { '$sum': 1 } } },
     { '$sort' : { '_id' : 1 } }
   ],

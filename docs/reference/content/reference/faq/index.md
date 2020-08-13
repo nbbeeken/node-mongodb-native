@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T12:53:30-04:00"
-title = "Frequently Asked Questions"
-[menu.main]
-  parent = "Reference"
-  identifier = "FAQ"
-  weight = 140
-  pre = "<i class='fa'></i>"
-+++
-
 # What is the difference between connectTimeoutMS, socketTimeoutMS and maxTimeMS ?
 
 | Setting | Default Value client.connect | Description |

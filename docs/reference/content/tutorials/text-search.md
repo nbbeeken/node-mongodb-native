@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T14:27:51-04:00"
-title = "Text Search"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Text Search"
-  weight = 50
-  pre = "<i class='fa'></i>"
-+++
-
 # Text Search
 
 > [Atlas Search](https://docs.atlas.mongodb.com/atlas-search) makes it easy to build fast, relevance-based search capabilities on top of your MongoDB data. Try it today on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), our fully managed database as a service.

@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T14:27:51-04:00"
-title = "Database Commands"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Database Commands"
-  weight = 70
-  pre = "<i class='fa'></i>"
-+++
-
 # Database Commands
 
 Database commands allow you to perform a wide range of diagnostic and administrative

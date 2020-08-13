@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T12:53:30-04:00"
-title = "CRUD Operations"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "CRUD Operations"
-  weight = 40
-  pre = "<i class='fa'></i>"
-+++
-
 # CRUD Operations
 
 For a walkthrough of the main CRUD operations please refer to the

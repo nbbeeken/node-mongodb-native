@@ -227,6 +227,7 @@ interface MongoClientPrivate {
  * The **MongoClient** class is a class that allows for making Connections to MongoDB.
  *
  * @example
+ * ```js
  * // Connect using a MongoClient instance
  * const MongoClient = require('mongodb').MongoClient;
  * const test = require('assert');
@@ -240,8 +241,9 @@ interface MongoClientPrivate {
  *   const db = client.db(dbName);
  *   client.close();
  * });
- *
+ * ```
  * @example
+ * ```js
  * // Connect using the MongoClient.connect static method
  * const MongoClient = require('mongodb').MongoClient;
  * const test = require('assert');
@@ -254,6 +256,7 @@ interface MongoClientPrivate {
  *   const db = client.db(dbName);
  *   client.close();
  * });
+ * ```
  */
 export class MongoClient extends EventEmitter {
   s: MongoClientPrivate;

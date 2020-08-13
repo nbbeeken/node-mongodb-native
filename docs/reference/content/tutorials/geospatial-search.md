@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T14:27:51-04:00"
-title = "Geospatial Search"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Geospatial Search"
-  weight = 55
-  pre = "<i class='fa'></i>"
-+++
-
 # Geospatial Search
 
 You can query against [geospatial indexes](https://docs.mongodb.org/manual/applications/geospatial-indexes/)
@@ -65,7 +55,7 @@ function findDocuments(db, callback) {
     console.log("Found the following records");
     console.log(docs);
     callback(docs);
-  });      
+  });
 }
 
 // use the findDocuments() function
@@ -101,7 +91,7 @@ function findDocuments(db, callback) {
     console.log("Found the following records");
     console.log(docs);
     callback(docs);
-  });      
+  });
 }
 
 // use the findDocuments() function

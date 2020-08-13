@@ -1,13 +1,3 @@
-+++
-date = "2015-03-17T15:36:56Z"
-title = "Create Indexes"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Create Indexes"
-  weight = 35
-  pre = "<i class='fa'></i>"
-+++
-
 # Create Indexes
 
 To create an index on a field or fields, pass an index specification

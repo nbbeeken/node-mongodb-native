@@ -1,13 +1,3 @@
-+++
-date = "2015-03-18T21:14:20-04:00"
-title = "Aggregation"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Aggregation"
-  weight = 46
-  pre = "<i class='fa'></i>"
-+++
-
 # Aggregation
 
 ## Overview
@@ -29,7 +19,7 @@ and operators, see the
 [manual:](https://docs.mongodb.com/manual/core/aggregation-pipeline/)
 
 The following example uses the aggregation pipeline on the
-[restaurant](https://docs.mongodb.org/getting-started/node/import-data/) 
+[restaurant](https://docs.mongodb.org/getting-started/node/import-data/)
 sample dataset to find a list of restaurants located in the Bronx,
 grouped by restaurant category.
 
@@ -65,8 +55,8 @@ results from the Bronx borough.
 ## Single Purpose Aggregation Operations
 
 MongoDB provides helper methods for some aggregation functions,
-including [``count``](https://docs.mongodb.com/manual/reference/command/count/), 
-[``group``](https://docs.mongodb.com/manual/reference/command/group/), 
+including [``count``](https://docs.mongodb.com/manual/reference/command/count/),
+[``group``](https://docs.mongodb.com/manual/reference/command/group/),
 and [``distinct``](https://docs.mongodb.com/manual/reference/command/distinct/).
 
 ### Count
@@ -85,7 +75,7 @@ find the total number of documents which have the exact array
 
 function simpleCount(db, callback) {
   const collection = db.collection( 'restaurants' );
-  collection.count({ 'categories': [ 'Chinese', 'Seafood' ] },	  
+  collection.count({ 'categories': [ 'Chinese', 'Seafood' ] },
 	  function(err, result) {
         assert.equal(err, null);
         console.log(result)
@@ -98,7 +88,7 @@ function simpleCount(db, callback) {
 ### Group
 
 The following example uses the ``group`` method with four
-arguments: 
+arguments:
 
 1. an array of fields to group by
 2. a document with conditions for filterings
@@ -118,10 +108,10 @@ array is ``['Peruvian']``.
 
 function simpleGroup(db, callback) {
     const collection = db.collection( 'restaurants' );
-    collection.group( ['stars'], 
-                      { 'categories': ['Peruvian'] }, 
+    collection.group( ['stars'],
+                      { 'categories': ['Peruvian'] },
                       { 'total': 0 },
-                      "function ( curr, result ) { result.total++ }", 
+                      "function ( curr, result ) { result.total++ }",
       function(err, result) {
         assert.equal(err, null);
         console.log(result)

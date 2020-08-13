@@ -1,13 +1,3 @@
-+++
-date = "2015-03-19T14:27:51-04:00"
-title = "Collections"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Collections"
-  weight = 30
-  pre = "<i class='fa'></i>"
-+++
-
 # Collections
 
 MongoDB stores documents in collections. If a collection does not
@@ -74,7 +64,7 @@ least one of three following conditions:
 
 
 function createValidated(db, callback) {
-  db.createCollection("contacts", 
+  db.createCollection("contacts",
 	   {
 	      'validator': { '$or':
 	         [

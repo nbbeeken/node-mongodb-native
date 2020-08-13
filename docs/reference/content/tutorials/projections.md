@@ -1,13 +1,3 @@
-+++
-date = "2016-06-01T12:53:30-04:00"
-title = "Projections"
-[menu.main]
-  parent = "Tutorials"
-  identifier = "Projections"
-  weight = 45
-  pre = "<i class='fa'></i>"
-+++
-
 # Projections
 
 By default, queries in MongoDB return all fields in matching
@@ -45,7 +35,7 @@ included automatically unless specifically excluded.
 
   findDocuments(db, function() {
     client.close();
-  });  
+  });
 });
 
 
@@ -77,4 +67,3 @@ To return all fields *except* the address field, use the following:
 ```js
 { 'address' : 0 }
 ```
-

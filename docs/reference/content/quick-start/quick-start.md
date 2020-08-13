@@ -1,12 +1,3 @@
-+++
-date = "2015-03-17T15:36:56Z"
-title = "Quick Start"
-[menu.main]
-  identifier = "Quick Start"
-  weight = 15
-  pre = "<i class='fa fa-road'></i>"
-+++
-
 Quick Start
 ===========
 This guide will show you how to set up a simple application using Node.js and MongoDB. Its scope is only how to set up the driver and perform the simple CRUD operations. For more in-depth coverage, see the [tutorials]({{< relref "reference/main.md" >}}).
@@ -70,7 +61,7 @@ The application should print **Connected successfully to server** to the console
 Insert a Document
 --------------------
 Add to **app.js** the following function which uses the **insertMany**
-method to add three documents to the **documents** collection.  
+method to add three documents to the **documents** collection.
 
 ```js
 const insertDocuments = function(db, callback) {
@@ -227,7 +218,7 @@ const updateDocument = function(db, callback) {
     assert.equal(1, result.result.n);
     console.log("Updated the document with the field a equal to 2");
     callback(result);
-  });  
+  });
 }
 ```
 
@@ -273,7 +264,7 @@ const removeDocument = function(db, callback) {
     assert.equal(1, result.result.n);
     console.log("Removed the document with the field a equal to 3");
     callback(result);
-  });    
+  });
 }
 ```
 
