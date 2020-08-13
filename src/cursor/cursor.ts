@@ -73,8 +73,6 @@ export type CursorFlag = typeof FLAGS[number];
 const FIELDS = ['numberOfRetries', 'tailableRetryInterval'] as const;
 
 export interface CursorPrivate extends CoreCursorPrivate {
-  /** Transforms functions */
-  transforms?: DocumentTransforms;
   numberOfRetries: number;
   tailableRetryInterval: number;
   currentNumberOfRetries: number;
@@ -96,7 +94,7 @@ export interface CursorOptions extends CoreCursorOptions {
 
 export interface CursorPrivate {
   /** Transforms functions */
-  transforms: CollectionTransform;
+  transforms?: DocumentTransforms;
   numberOfRetries: number;
   tailableRetryInterval: number;
   currentNumberOfRetries: number;
