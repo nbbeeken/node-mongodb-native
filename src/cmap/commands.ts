@@ -701,20 +701,21 @@ export class OpMsgResponse {
         const view = BSONDataView.fromUint8Array(
           this.data.subarray(this.index, this.index + bsonSize)
         );
-        const elements = Array.from(parseToElements(view, 0));
+        const elements = parseToElements(view, 0);
 
-        let ok: 1 | 0;
-        {
-          let okValue;
-          const okElement = elements.find(element => ByteUtils.equals(element.name.utf8, OK_NAME));
-          if (okElement == null) throw new MongoUnexpectedServerResponseError('no ok value');
-          if (okElement.type === 16) okValue = view.getInt32(okElement.offset, true);
-          if (okElement.type === 1) okValue = view.getFloat64(okElement.offset, true);
-          if (okElement.type === 8) okValue = view.getUint8(okElement.offset);
-          ok = okValue ? 1 : 0;
+        let ok = 0;
+        let object = {};
+        for (const element of elements) {
+          if (element.name.utf8[0] === 0x6f && element.name.utf8[1] === 0x6b) {
+            if (element.type === 16) ok = view.getInt32(element.offset, true);
+            if (element.type === 1) ok = view.getFloat64(element.offset, true);
+            if (element.type === 8) ok = view.getUint8(element.offset);
+            ok = ok ? 1 : 0;
+          }
+          Object.defineProperty(object, element.name.toString(), element)
         }
 
-        this.documents.push({ ok });
+        this.documents.push(object);
 
         this.index += bsonSize;
       } else if (payloadType === 1) {
