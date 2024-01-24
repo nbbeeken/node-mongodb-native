@@ -3,6 +3,7 @@ import type { DeserializeOptions, SerializeOptions } from 'bson';
 export {
   Binary,
   BSON,
+  BSONDataView,
   BSONRegExp,
   BSONSymbol,
   BSONType,
@@ -20,6 +21,8 @@ export {
   MaxKey,
   MinKey,
   ObjectId,
+  parseToElements,
+  parseToNestedStructure,
   serialize,
   Timestamp,
   UUID

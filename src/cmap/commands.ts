@@ -1,8 +1,14 @@
 import type { BSONSerializeOptions, Document, Long } from '../bson';
+import { BSONDataView, parseToElements } from '../bson';
 import * as BSON from '../bson';
-import { MongoInvalidArgumentError, MongoRuntimeError } from '../error';
+import {
+  MongoInvalidArgumentError,
+  MongoRuntimeError,
+  MongoUnexpectedServerResponseError
+} from '../error';
 import { ReadPreference } from '../read_preference';
 import type { ClientSession } from '../sessions';
+import { ByteUtils } from '../utils';
 import type { CommandOptions } from './connection';
 import {
   compress,
@@ -588,6 +594,8 @@ export class OpMsgRequest {
   }
 }
 
+const OK_NAME = Buffer.from('ok', 'utf8');
+
 /** @internal */
 export class OpMsgResponse {
   parsed: boolean;
@@ -687,8 +695,27 @@ export class OpMsgResponse {
       const payloadType = this.data.readUInt8(this.index++);
       if (payloadType === 0) {
         const bsonSize = this.data.readUInt32LE(this.index);
-        const bin = this.data.slice(this.index, this.index + bsonSize);
-        this.documents.push(raw ? bin : BSON.deserialize(bin, bsonOptions));
+        // const bin = this.data.slice(this.index, this.index + bsonSize);
+        // this.documents.push(raw ? bin : BSON.deserialize(bin, bsonOptions));
+
+        const view = BSONDataView.fromUint8Array(
+          this.data.subarray(this.index, this.index + bsonSize)
+        );
+        const elements = Array.from(parseToElements(view, 0));
+
+        let ok: 1 | 0;
+        {
+          let okValue;
+          const okElement = elements.find(element => ByteUtils.equals(element.name.utf8, OK_NAME));
+          if (okElement == null) throw new MongoUnexpectedServerResponseError('no ok value');
+          if (okElement.type === 16) okValue = view.getInt32(okElement.offset, true);
+          if (okElement.type === 1) okValue = view.getFloat64(okElement.offset, true);
+          if (okElement.type === 8) okValue = view.getUint8(okElement.offset);
+          ok = okValue ? 1 : 0;
+        }
+
+        this.documents.push({ ok });
+
         this.index += bsonSize;
       } else if (payloadType === 1) {
         // It was decided that no driver makes use of payload type 1
